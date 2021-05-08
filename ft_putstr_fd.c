@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 22:54:32 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/07 23:03:02 by jkasongo         ###   ########.fr       */
+/*   Created: 2021/05/07 22:54:42 by jkasongo          #+#    #+#             */
+/*   Updated: 2021/05/07 23:02:18 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t	ft_putstr(const char *s, const int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	len;
-	ssize_t	nb_byte;
+	int	i;
 
-	nb_byte = 0;
-	if (!s)
-		return (-1);
-	len = ft_strlen(s);
-	nb_byte = write(fd, s, len);
-	return (nb_byte);
+	i = 0;
+	if (s)
+		while (s[i] != '\0')
+			write(fd, &s[i++], 1);
 }
