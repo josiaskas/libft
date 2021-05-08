@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/07 23:40:01 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/07 23:42:17 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ bonus	: $(OBJS) $(OBJS_BONUS)
 	ranlib $(NAME)_bonus.a
 
 %.o	: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean	:
 	@rm -f *.o
