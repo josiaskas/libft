@@ -6,13 +6,29 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/07 22:21:13 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 00:58:16 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void test_ft_strndup(void)
+void	test_ft_substr(void)
+{
+	char src[] = "loisirpointpoint";
+	char *cpy = 0;
+	char *cpy2 = 0;
+
+	cpy = ft_substr(src, 6, 5);
+	cpy2 = ft_substr(src, 17, 5);
+	if ((cpy[0] == 'p') && (cpy[5] == 0) && (cpy2[0] == 0))
+		ft_print_success("ft_strndup passed");
+	else
+		ft_print_error("ft_strndup failed");
+	free(cpy);
+	free(cpy2);
+}
+
+void	test_ft_strndup(void)
 {
 	char src[] = "panda";
 	char *cpy = 0;
@@ -444,6 +460,7 @@ int		main(void)
 	ft_putstr("==========TESTING==========\n", STDOUT_FILENO);
 	part_one_test();
 	ft_putstr("> Part 2 functions\n", STDOUT_FILENO);
+	test_ft_substr();
 	ft_putstr("==========PERSONAL==========\n", STDOUT_FILENO);
 	test_ft_isspace();
 	test_ft_strndup();
