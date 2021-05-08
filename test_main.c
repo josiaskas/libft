@@ -6,11 +6,23 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 01:14:29 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 02:17:39 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void test_ft_strtrim(void)
+{
+	char *cpy = 0;
+
+	cpy = ft_strtrim("       Hello World!        ", " ");
+	if (cpy[0] == 'H')
+		ft_print_success("ft_strtrim passed");
+	else
+		ft_print_error("ft_strtrim failed");
+	free(cpy);
+}
 
 void test_ft_strjoin(void)
 {
@@ -477,6 +489,7 @@ int		main(void)
 	ft_putstr("> Part 2 functions\n", STDOUT_FILENO);
 	test_ft_substr();
 	test_ft_strjoin();
+	test_ft_strtrim();
 	ft_putstr("==========PERSONAL==========\n", STDOUT_FILENO);
 	test_ft_isspace();
 	test_ft_strndup();
