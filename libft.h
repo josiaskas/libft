@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/07 23:58:00 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 01:04:38 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char	*ft_strdup(const char *s1);
 
 //partie2
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
@@ -51,7 +52,7 @@ void	ft_putnbr_fd(int n, int fd);
 //bonus
 
 //personal
-int	ft_isspace(int c);
+int		ft_isspace(int c);
 ssize_t	ft_putstr(const char *s, const int fd);
 char	*ft_strndup(const char *s1, size_t n);
 void	ft_free_array(void **array);

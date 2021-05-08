@@ -6,11 +6,26 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 00:58:16 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 01:14:29 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void test_ft_strjoin(void)
+{
+	char *cpy = 0;
+	char *cpy2 = 0;
+
+	cpy = ft_strjoin("harry", "potter");
+	cpy2 = ft_strjoin(0, 0);
+	if ((cpy[0] == 'h') && (cpy[5] == 'p') && (cpy2[0] == 0))
+		ft_print_success("ft_strjoin passed");
+	else
+		ft_print_error("ft_strjoin failed");
+	free(cpy);
+	free(cpy2);
+}
 
 void	test_ft_substr(void)
 {
@@ -461,6 +476,7 @@ int		main(void)
 	part_one_test();
 	ft_putstr("> Part 2 functions\n", STDOUT_FILENO);
 	test_ft_substr();
+	test_ft_strjoin();
 	ft_putstr("==========PERSONAL==========\n", STDOUT_FILENO);
 	test_ft_isspace();
 	test_ft_strndup();
