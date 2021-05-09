@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/08 22:18:25 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/08 23:36:37 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
 		ft_atoi.c \
 		ft_calloc.c ft_strdup.c	\
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c\
-		ft_itoa.c\
+		ft_itoa.c ft_strmapi.c\
 		ft_putchar_fd.c	ft_putstr_fd.c ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_isspace.c ft_putstr.c ft_strndup.c\

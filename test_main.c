@@ -6,11 +6,29 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 22:26:26 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 23:40:34 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	test_map(unsigned int i, char c)
+{
+	return ((char)(c + i));
+}
+
+void	test_ft_strmapi(void)
+{
+	char *test;
+	char *test2;
+	test = ft_strmapi("aaa", test_map);
+	test2 = ft_strmapi("", test_map);
+	if ((test[0] == 'a') && (test[1] == 'b') && (test2[0] == 0))
+		ft_print_success("ft_strmapi passed");
+	else
+		ft_print_error("ft_strmapi failed");
+	free(test);
+}
 
 void	test_ft_itoa(void)
 {
@@ -25,7 +43,8 @@ void	test_ft_itoa(void)
 	free(nbr1);
 	free(nbr2);
 }
-void test_ft_split(void)
+
+void	test_ft_split(void)
 {
 	char	**splitted1 = ft_split(" Rolling in the Deep ", ' ');
 	char	**splitted2 = ft_split("ddddertreerd", 0);
@@ -519,6 +538,7 @@ int		main(void)
 	test_ft_strtrim();
 	test_ft_split();
 	test_ft_itoa();
+	test_ft_strmapi();
 	ft_putstr("==========PERSONAL==========\n", STDOUT_FILENO);
 	test_ft_isspace();
 	test_ft_strndup();
