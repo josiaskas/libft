@@ -6,18 +6,31 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 20:26:29 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/08 22:26:26 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	test_ft_itoa(void)
+{
+	char *nbr1;
+	char *nbr2;
+	nbr1 = ft_itoa(-2147483648);
+	nbr2 = ft_itoa(2147483647);
+	if ((nbr1[0] == '-') && (nbr2[0] == '2') && (nbr1[1] == '2'))
+		ft_print_success("ft_itoa passed");
+	else
+		ft_print_error("ft_itoa failed");
+	free(nbr1);
+	free(nbr2);
+}
 void test_ft_split(void)
 {
 	char	**splitted1 = ft_split(" Rolling in the Deep ", ' ');
 	char	**splitted2 = ft_split("ddddertreerd", 0);
 
-		if ((splitted1[3][0] == 'D') && (splitted2[0][1] == 'd'))
+	if ((splitted1[3][0] == 'D') && (splitted2[0][1] == 'd'))
 		ft_print_success("ft_split passed");
 	else
 		ft_print_error("ft_split failed");
@@ -25,7 +38,7 @@ void test_ft_split(void)
 	ft_free_array((void **)splitted2);
 }
 
-void test_ft_strtrim(void)
+void	test_ft_strtrim(void)
 {
 	char *cpy = 0;
 
@@ -37,7 +50,7 @@ void test_ft_strtrim(void)
 	free(cpy);
 }
 
-void test_ft_strjoin(void)
+void	test_ft_strjoin(void)
 {
 	char *cpy = 0;
 	char *cpy2 = 0;
@@ -505,6 +518,7 @@ int		main(void)
 	test_ft_strjoin();
 	test_ft_strtrim();
 	test_ft_split();
+	test_ft_itoa();
 	ft_putstr("==========PERSONAL==========\n", STDOUT_FILENO);
 	test_ft_isspace();
 	test_ft_strndup();
