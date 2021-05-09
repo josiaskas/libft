@@ -6,11 +6,30 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 23:40:34 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/09 03:58:51 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void test_ft_linked_list(void)
+{
+	char *math = "mathematiques";
+	char *geo = "geographie";
+	char *philo = "philosophie";
+	t_list *test = ft_lstnew(math);
+	test->next = ft_lstnew(geo);
+	t_list *test2 = ft_lstnew(philo);
+	t_list **begin = &test;
+	ft_lstadd_front(begin, test2);
+	int len = ft_lstsize(test);
+
+	if (len == 3)
+		ft_print_success("ft_lstnew, ft_lstsize ft_lstadd_front passed");
+	else
+		ft_print_error("linked_list failed");
+	free(test);
+}
 
 static char	test_map(unsigned int i, char c)
 {
