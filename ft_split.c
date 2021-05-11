@@ -6,11 +6,26 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 17:52:55 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 19:59:25 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/11 13:50:32 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_strndup_local(const char *s1, size_t n)
+{
+	char	*heap_p;
+	char	*p;
+
+	heap_p = malloc(n + 1);
+	if (!heap_p)
+		return (0);
+	p = heap_p;
+	while ((*s1 != 0) && (n--))
+		*p++ = *s1++;
+	*p = '\0';
+	return (heap_p);
+}
 
 static size_t	count_words(const char *s, char c)
 {
@@ -48,7 +63,7 @@ static void	ft_splitter(char **words, char const *s, char c)
 			s++;
 		if ((*s == c) && (i != 0))
 		{
-			words[nbr_words++] = ft_strndup((s - i), i);
+			words[nbr_words++] = ft_strndup_local((s - i), i);
 			i = 0;
 		}
 		if ((*s != c))
@@ -56,7 +71,7 @@ static void	ft_splitter(char **words, char const *s, char c)
 		s++;
 	}
 	if (i != 0)
-		words[nbr_words++] = ft_strndup((s - i), i);
+		words[nbr_words++] = ft_strndup_local((s - i), i);
 	words[nbr_words] = 0;
 }
 

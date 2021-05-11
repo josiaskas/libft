@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/09 23:29:36 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/11 13:40:42 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
 		ft_isspace.c ft_putstr.c ft_strndup.c\
 		ft_free_array.c\
 
-BONUS_SRCS = $(wildcard ft_*_bonus.c)
+BONUS_SRCS = ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstlast_bonus.c \
+		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstdelone_bonus.c \
+		ft_lstmap_bonus.c ft_lstsize_bonus.c
+
 TEST_SRCS = $(wildcard test_*.c)
 
 #objects
