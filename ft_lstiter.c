@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 22:54:32 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/11 14:14:06 by jkasongo         ###   ########.fr       */
+/*   Created: 2021/05/11 14:43:17 by jkasongo          #+#    #+#             */
+/*   Updated: 2021/05/11 14:43:33 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t	ft_putstr(const char *s, const int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	len;
-	ssize_t	nb_byte;
-
-	nb_byte = 0;
-	if (!s)
-		return (-1);
-	len = ft_strlen(s);
-	nb_byte = write(fd, s, len);
-	return (nb_byte);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		(*f)(lst->content);
+		lst = lst->next;
+	}
 }

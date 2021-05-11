@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 03:54:47 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/11 13:44:54 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:23:44 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nbr = 0;
 	sign = 1;
+	if (!str)
+		return (0);
 	while (str[i] != 0 && ft_isspace_local(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')

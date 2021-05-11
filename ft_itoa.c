@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 20:58:58 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/08 22:25:27 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:42:08 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ char	*ft_itoa(int n)
 	char	*str;
 	size_t	len;
 
-	if (!n)
-		return (0);
 	len = ft_nbr_char(n);
 	str = malloc(len + 2);
 	if (!str)

@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/11 13:47:19 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:55:14 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,7 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-//personal
-int		ft_isspace(int c);
-ssize_t	ft_putstr(const char *s, const int fd);
-char	*ft_strndup(const char *s1, size_t n);
-void	ft_free_array(void **array);
 
-//test section
-void	ft_print_error(const char *message);
-void	ft_print_success(const char *message);
 #endif
