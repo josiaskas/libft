@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 16:17:31 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/13 16:53:01 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/13 16:54:17 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*heap_p;
 
 	heap_p = malloc(count * size);
-	if (!heap_p)
-		return (0);
+	if (heap_p == 0)
+		return (heap_p);
 	ft_bzero(heap_p, (count * size));
 	return (heap_p);
 }
