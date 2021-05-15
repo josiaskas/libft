@@ -15,10 +15,12 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*heap_p;
+	size_t	total_size;
 
-	heap_p = malloc(count * size);
-	if (heap_p == 0)
-		return (heap_p);
-	ft_bzero(heap_p, (count * size));
+	total_size = count * size;
+	heap_p = malloc(total_size);
+	if (heap_p == NULL)
+		return (NULL);
+	ft_bzero(heap_p, total_size);
 	return (heap_p);
 }
