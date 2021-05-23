@@ -3,47 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkasongo <marvin@42quebec.com>             +#+  +:+       +#+         #
+#    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 20:02:38 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/21 20:28:06 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/23 13:14:54 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf 
+NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
+INCLUDES = -I./includes
 
 #source
+SRCS_DIR = sources/
 SRCS = ft_printf.c
-#objs
-OBJS_DIR = objs/
-OBJS = $(SRCS:.c=.o)
-OBJS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
+SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
+#objs
+OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS_PREFIXED)
-	 ar rc -o $(NAME).a $^
-	 ranlib $(NAME).a
+$(NAME): $(OBJS)
+	$(MAKE) re -C ./libft
+	@cp libft/libft.a $(NAME)
+	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS_PREFIXED)
+	@ar -rcs $(NAME) $(OBJS)
 
-bonus : $(OBJS_PREFIXED)
-	@echo "bonus"
-
-$(OBJS_DIR)%.o : %.c ft_printf.h 
-	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
-
-clean : 
-	@rm -rf $(OBJS_DIR)
-	@echo "erasing objects"
+clean :
+	$(MAKE) clean -C ./libft
+	rm -rf $(OBJS)
 
 fclean : clean
-	@rm -f $(NAME).a
-	@echo "erasing executable"
+	$(MAKE) fclean -C ./libft
+	rm -rf $(NAME)
 
-re: fclean all
+re : fclean all
 
 help	:
 	@echo "all $(NAME) clean fclean re \033[0;32m help\033[0;39m"

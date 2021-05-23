@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 20:17:02 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/21 20:54:17 by jkasongo         ###   ########.fr       */
+/*   Created: 2021/05/07 22:54:42 by jkasongo          #+#    #+#             */
+/*   Updated: 2021/05/07 23:02:18 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <stdarg.h>
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
 
-int	ft_printf(const char *s, ...);
-#endif
+	i = 0;
+	if (s)
+		while (s[i] != '\0')
+			write(fd, &s[i++], 1);
+}

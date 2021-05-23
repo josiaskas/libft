@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 20:54:52 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/21 21:14:24 by jkasongo         ###   ########.fr       */
+/*   Created: 2021/05/09 02:17:36 by jkasongo          #+#    #+#             */
+/*   Updated: 2021/05/09 02:23:46 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static size_t	ft_strlen(const char *s)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (i);
-	while (*s != 0)
+	while (lst)
 	{
-		s++;
-		i++;
+		if (lst->next == 0)
+			return (lst);
+		lst = lst->next;
 	}
-	return (i);
-}
-
-int	ft_printf(const char *s, ...)
-{
-	int		args;
-	va_list	ap;
-
-
-	va_start(ap, args);
-
-	va_end(ap);
-	return (args);
+	return (0);
 }
