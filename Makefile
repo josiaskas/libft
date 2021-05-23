@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 20:02:38 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/23 13:14:54 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/23 14:31:35 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,10 @@ all : $(NAME)
 $(NAME): $(OBJS)
 	$(MAKE) re -C ./libft
 	@cp libft/libft.a $(NAME)
-	@$(CC) $(FLAGS) $(INCLUDES) $(SRCS_PREFIXED)
-	@ar -rcs $(NAME) $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
+
+$(OBJS) : $(SRCS_PREFIXED)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS_PREFIXED)
 
 clean :
 	$(MAKE) clean -C ./libft
