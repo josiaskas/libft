@@ -6,19 +6,19 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 14:48:27 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/23 18:41:01 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:06:23 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_check_flag(t_arg *arg)
+static void	ft_check_flag(t_arg *arg)
 {
 	const char	*format;
 	char		c;
 
 	arg->flags = 0;
-	c = arg->format[(arg->i)];
+	c = arg->format[(arg->cursor)];
 	if (c == '-')
 		arg->flags = '-';
 	else if (c == '+')
@@ -30,62 +30,44 @@ static int	ft_check_flag(t_arg *arg)
 	else if (c == '0')
 		arg->flags = '0';
 	else
-		return (0);
-	arg->i++;
-	return (1);
+		return ;
+	arg->cursor++;
 }
 
-int	ft_get_number(char *format, int *i)
-{
-	int	c;
-
-	c = 0;
-	while (ft_isdigit(format[*i]))
-	{
-		c *= 10;
-		c += (int)(c - 48);
-		*i++;
-	}
-	return (c);
-}
-
-static int	ft_check_width(t_arg *arg)
+static int	ft_check_width(t_arg *arg, va_list args)
 {
 	char	c;
 	int		nbr;
 
 	nbr = 0;
 	arg->width = 0;
-	c = arg->format[(arg->i)];
-	if (c == '0')
-		return (-1);
-	nbr = ft_get_number(arg->format, &(arg->i));
-	if (nbr > 0)
-		arg->width = nbr;
-	if (arg->format[(arg->i)] == '*')
+	c = arg->format[(arg->cursor)];
+	if (c == '*')
 	{
-		arg->width = -1;
-		arg->i++;
+		arg->width = va_arg(args, int);
+		arg->cursor++;
 	}
-	if (((arg->width) == -1) && (nbr > 0))
-		return (-1);
-	if (arg->width != 0)
-		return (1);
-	return (0);
+	if (c >= '1' && c <= '9')
+	{
+		nbr = ft_atoi(&(arg->format[arg->cursor]));
+		arg->width = nbr;
+	}
+	if (c == '0')
+		return (0);
+	return (1);
 }
 
-int	ft_parse_format(t_arg *arg)
+int	ft_parse_format(t_arg *arg, va_list args)
 {
 	const char	*format;
 
 	format = arg->format;
-	while (format[arg->i])
+	while (format[arg->cursor])
 	{
-		if (ft_check_flag(arg) == -1)
-			return (-1);
-		if (ft_check_width(arg) == -1)
-			return (-1);
-		arg->i++;
+		ft_check_flag(arg);
+		if (!ft_check_width(arg, args))
+			return (0);
+		arg->cursor++;
 	}
 	return (arg->written);
 }

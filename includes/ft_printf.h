@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:08 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/23 18:34:25 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:47:32 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@
 typedef struct s_arg
 {
 	char	*format;
-	int		i;
-	va_list	*arguments;
+	int		cursor;
 	char	flags;
 	int		width;
 	int		precison;
@@ -35,6 +34,6 @@ typedef struct s_arg
 typedef int	(*t_parse_arg)(t_arg);
 
 int	ft_printf(const char *s, ...);
-int	ft_parse_format(t_arg *arg);
+int	ft_parse_format(t_arg *arg, va_list args);
 
 #endif
