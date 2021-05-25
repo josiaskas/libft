@@ -6,45 +6,68 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:28 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/24 17:22:05 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:34:01 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_parse_format(t_arg *arg, va_list args)
+static int	ft_parse_format(t_arg *arg)
 {
-	int	error;
+	int	is_arg;
 
-	error = 0;
+	is_arg = 1;
+	arg->written = 0;
+	arg->cursor++;
+	ft_bzero(arg->flag, 4);
 	ft_bzero(arg->part, 4);
-	while (arg->format[arg->cursor])
-	{
-		if (arg->format[arg->cursor])
-			ft_parse_flag(arg);
-		if (arg->format[arg->cursor])
-			ft_parse_width(arg, args);
-		if ()
-		{
-			ft_parse_width(arg, args);
-		}
-		arg->cursor++;
-	}
-	return (error);
+	if (arg->format[arg->cursor] != 0)
+		ft_parse_flag(arg);
+	if (arg->format[arg->cursor] != 0)
+		ft_parse_width(arg);
+	if (arg->format[arg->cursor] != 0)
+		ft_parse_precision(arg);
+	if (arg->format[arg->cursor] != 0)
+		ft_parse_arg_type(arg);
+	if (arg->part[3])
+		ft_write_arg_data(arg);
+	else
+		is_arg = 0;
+	return (is_arg);
 }
 
-static int	loop_format(t_arg *arg, va_list args)
+static int	ft_write_arg(t_arg *arg)
 {
 	int	written;
 
+	arg->cursor_arg = arg->cursor;
+	arg->written = 0;
+	written = 0;
+	if (ft_parse_format(arg))
+		written += arg->written;
+	else
+	{
+		while ((arg->cursor_arg) < (arg->cursor))
+		{
+			ft_putchar_fd(arg->format[arg->cursor_arg], STDOUT_FILENO);
+			arg->cursor_arg++;
+			written++;
+		}
+	}
+	return (written);
+}
+
+static int	ft_loop_format(t_arg *arg)
+{
+	int		written;
+
+	written = 0;
 	while (arg->format[arg->cursor] != 0)
 	{
 		if (arg->format[arg->cursor] == '%')
 		{
-			if (ft_parse_format(arg, args))
-				written += arg->written;
-			else
-				return (0);
+			written += ft_write_arg(arg);
+			arg->cursor++;
 		}
 		else
 		{
@@ -59,14 +82,13 @@ static int	loop_format(t_arg *arg, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	int		total_written;
-	va_list	args;
 	t_arg	arg;
 
 	va_start(arg.args, format);
 	total_written = 0;
 	arg.format = format;
 	arg.cursor = 0;
-	total_written = loop_format(&arg, args);
+	total_written = ft_loop_format(&arg);
 	va_end(arg.args);
 	if (total_written < 0)
 		return (0);

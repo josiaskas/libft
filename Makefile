@@ -6,18 +6,21 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 20:02:38 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/23 14:31:35 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/05/25 18:35:19 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror -c -g
 INCLUDES = -I./includes
 
 #source
 SRCS_DIR = sources/
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
+		ft_parse_precision.c ft_parse_width.c \
+		ft_printf_char.c ft_utils.c
+
 SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
 #objs

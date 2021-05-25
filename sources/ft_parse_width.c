@@ -6,14 +6,14 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:54:23 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/24 15:50:23 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/25 13:17:34 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 //[1-9 (only if flag specified first, not true) or * (value inside the args)]
-void	ft_parse_width(t_arg *arg, va_list args)
+void	ft_parse_width(t_arg *arg)
 {
 	int		width;
 	char	c;
@@ -23,7 +23,7 @@ void	ft_parse_width(t_arg *arg, va_list args)
 	c = arg->format[arg->cursor];
 	if (c == '*')
 	{
-		arg->min_width = va_arg(args, int);
+		arg->min_width = va_arg(arg->args, int);
 		arg->part[1] = 1;
 		arg->cursor++;
 		return ;
