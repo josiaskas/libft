@@ -3,6 +3,7 @@
 		"ft_printf.h": "c",
 		"chrono": "c",
 		"ios": "c",
-		"locale": "c"
+		"locale": "c",
+		"sstream": "c"
 	}
 }
