@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:28 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/25 18:34:01 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/26 14:00:51 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,13 @@ static int	ft_loop_format(t_arg *arg)
 		if (arg->format[arg->cursor] == '%')
 		{
 			written += ft_write_arg(arg);
-			arg->cursor++;
 		}
 		else
 		{
 			ft_putchar_fd(arg->format[arg->cursor], STDOUT_FILENO);
 			written++;
+			arg->cursor++;
 		}
-		arg->cursor++;
 	}
 	return (written);
 }

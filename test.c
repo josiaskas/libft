@@ -1,4 +1,5 @@
 #include "includes/ft_printf.h"
+#include <stdio.h>
 
 int	main(void)
 {
@@ -7,6 +8,7 @@ int	main(void)
 
 	c = 'b';
 	t = 'r';
-	ft_printf("s%03ctx %c", c, t);
+	ft_printf("s%03ctx %c\n", 98, t);
+	printf("s%03ctx %c\n", 98, t);
 	return (0);
 }

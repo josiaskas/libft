@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:46:38 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/25 18:45:06 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:58:30 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,16 @@ static void	ft_print_left_aligned(t_arg *arg, int width)
 
 static void	print_special(char *flag, int width, t_arg *arg)
 {
-	if (flag[e_zero] && !flag[e_minus])
-		ft_print_with_zero(arg, width);
-	if (!flag[e_zero] && flag[e_minus])
+	if (flag[e_minus])
+	{
 		ft_print_left_aligned(arg, width);
+		return ;
+	}
+	if (flag[e_zero])
+	{
+		ft_print_with_zero(arg, width);
+		return ;
+	}
 	return ;
 }
 
