@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:46:38 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/26 13:58:30 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/27 12:34:50 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ static void	ft_print_with_zero(t_arg *arg, int width)
 	while ((width - 1) > 0)
 	{
 		write(STDOUT_FILENO, "0", 1);
+		width--;
+	}
+	c = va_arg(arg->args, int);
+	write(STDOUT_FILENO, &c, 1);
+	return ;
+}
+
+static void	ft_print_rigth_aligned(t_arg *arg, int width)
+{
+	char	c;
+
+	arg->written = width;
+	while ((width - 1) > 0)
+	{
+		write(STDOUT_FILENO, " ", 1);
 		width--;
 	}
 	c = va_arg(arg->args, int);
@@ -54,6 +69,7 @@ static void	print_special(char *flag, int width, t_arg *arg)
 		ft_print_with_zero(arg, width);
 		return ;
 	}
+	ft_print_rigth_aligned(arg, width);
 	return ;
 }
 
@@ -67,7 +83,7 @@ void	ft_printf_char(t_arg *arg)
 	flag = arg->flag;
 	if ((arg->part[1]) && (arg->min_width > 1))
 		width = arg->min_width;
-	if ((arg->part[0]) && (width > 1))
+	if ((arg->part[0]) || (width > 1))
 		print_special(arg->flag, width, arg);
 	else
 	{

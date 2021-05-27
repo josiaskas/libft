@@ -3,12 +3,9 @@
 
 int	main(void)
 {
-	char	c;
-	char	t;
+	char	str[] = "hello world!";
 
-	c = 'b';
-	t = 'r';
-	ft_printf("s%03ctx %c\n", 98, t);
-	printf("s%03ctx %c\n", 98, t);
+	ft_printf("%s\n", str);
+	printf("%s\n", str);
 	return (0);
 }
