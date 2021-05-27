@@ -6,13 +6,29 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:44:37 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/25 13:23:43 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:32:52 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-//[0-9] number or * (value inside the args)]
+static void	mini_itoa_precision(t_arg *arg, char c)
+{
+	int	precision;
+
+	precision = 0;
+	while ((c >= '0') && (c <= '9'))
+	{
+		precision = precision * 10;
+		precision += (int)(c - 48);
+		arg->part[2] = 1;
+		arg->cursor++;
+		c = arg->format[arg->cursor];
+	}
+	arg->max_precision = precision;
+}
+
+//[0-9] number or * (value inside the args) never negative start from 0 to n]
 void	ft_parse_precision(t_arg *arg)
 {
 	int		precision ;
@@ -21,23 +37,21 @@ void	ft_parse_precision(t_arg *arg)
 	precision = 0;
 	if ((arg->format[arg->cursor]) != '.')
 		return ;
+	arg->max_precision = 0;
+	arg->part[2] = 1;
 	arg->cursor++;
 	if ((arg->format[arg->cursor]) == '*')
 	{
-		arg->max_precision = va_arg(arg->args, int);
+		precision = va_arg(arg->args, int);
+		arg->max_precision = precision;
 		arg->part[2] = 1;
+		if (precision < 0)
+			arg->part[2] = 0;
 		arg->cursor++;
 		return ;
 	}
 	c = arg->format[arg->cursor];
-	while ((c >= '0') && (c <= '9'))
-	{
-		precision = precision * 10;
-		precision += (int)(c - 48);
-		arg->part[2] = 1;
-		arg->max_precision = precision;
-		arg->cursor++;
-		c = arg->format[arg->cursor];
-	}
+	if ((c >= '0') && (c <= '9'))
+		mini_itoa_precision(arg, c);
 	return ;
 }

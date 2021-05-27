@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:54:23 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/27 13:21:15 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/27 14:04:00 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void	mini_itoa_width(t_arg *arg, char c)
 		width = width * 10;
 		width += (int)(c - 48);
 		arg->part[1] = 1;
-		arg->min_width = width;
 		arg->cursor++;
 		c = arg->format[arg->cursor];
 	}
+	arg->min_width = width;
 }
 
 //[1-9 (only if flag specified first, not true) or * (value inside the args)]
@@ -39,7 +39,8 @@ void	ft_parse_width(t_arg *arg)
 	c = arg->format[arg->cursor];
 	if (c == '*')
 	{
-		arg->min_width = va_arg(arg->args, int);
+		width = va_arg(arg->args, int);
+		arg->min_width = width;
 		arg->part[1] = 1;
 		arg->cursor++;
 		return ;

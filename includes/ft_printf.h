@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:08 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/27 12:41:10 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:10:23 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	ft_parse_arg_type(t_arg *arg);
 void	ft_write_arg_data(t_arg *arg);
 void	ft_printf_char(t_arg *arg);
 void	ft_printf_str(t_arg *arg);
+char	*ft_precision_spaces(char *str, int precision, int len, t_arg *arg);
 
 #endif
