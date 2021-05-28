@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:53:47 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/27 12:38:18 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/28 14:04:30 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ void	ft_write_arg_data(t_arg *arg)
 		ft_printf_char(arg);
 	if (arg->arg_type == 's')
 		ft_printf_str(arg);
+	if (arg->arg_type == 'p')
+		ft_printf_pointer(arg);
 }
