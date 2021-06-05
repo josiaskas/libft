@@ -6,13 +6,13 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:12:09 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/28 14:54:09 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/04 23:20:44 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	ft_print_with_zero(t_arg *arg, char *str, int len)
+void	ft_print_with_zero_str(t_arg *arg, char *str, int len)
 {
 	int	width;
 
@@ -32,7 +32,7 @@ static void	ft_print_with_zero(t_arg *arg, char *str, int len)
 	ft_putstr_fd(str, STDOUT_FILENO);
 }
 
-static void	ft_print_right_aligned(t_arg *arg, char *str, int len)
+void	ft_print_right_aligned_str(t_arg *arg, char *str, int len)
 {
 	int	width;
 
@@ -52,7 +52,7 @@ static void	ft_print_right_aligned(t_arg *arg, char *str, int len)
 	ft_putstr_fd(str, STDOUT_FILENO);
 }
 
-static void	ft_print_left_aligned(t_arg *arg, char *str, int len)
+void	ft_print_left_aligned_str(t_arg *arg, char *str, int len)
 {
 	int	width;
 
@@ -72,7 +72,7 @@ static void	ft_print_left_aligned(t_arg *arg, char *str, int len)
 	}
 }
 
-static void	print_special(char *flag, int len, char *str, t_arg *arg)
+void	print_special(char *flag, int len, char *str, t_arg *arg)
 {
 	char	*str_part;
 
@@ -86,13 +86,13 @@ static void	print_special(char *flag, int len, char *str, t_arg *arg)
 	else
 		str_part = ft_strndup(str, len);
 	if (flag[e_minus])
-		ft_print_left_aligned(arg, str_part, len);
+		ft_print_left_aligned_str(arg, str_part, len);
 	else if (flag[e_zero])
-		ft_print_with_zero(arg, str_part, len);
+		ft_print_with_zero_str(arg, str_part, len);
 	else if (arg->part[1] && (arg->min_width < 0))
-		ft_print_left_aligned(arg, str_part, len);
+		ft_print_left_aligned_str(arg, str_part, len);
 	else
-		ft_print_right_aligned(arg, str_part, len);
+		ft_print_right_aligned_str(arg, str_part, len);
 	free(str_part);
 	return ;
 }

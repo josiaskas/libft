@@ -4,6 +4,7 @@
 		"chrono": "c",
 		"ios": "c",
 		"locale": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"complex": "c"
 	}
 }

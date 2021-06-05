@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 20:02:38 by jkasongo          #+#    #+#              #
-#    Updated: 2021/05/28 14:06:25 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/06/04 23:03:37 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS_DIR = sources/
 SRCS = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 		ft_parse_precision.c ft_parse_width.c \
 		ft_printf_char.c ft_printf_str.c ft_utils.c\
-		ft_printf_pointer.c
+		ft_printf_pointer.c ft_printf_int.c ft_itoa_printf.c
 
 SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
