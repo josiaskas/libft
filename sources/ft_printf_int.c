@@ -113,7 +113,7 @@ static void	print_special(char *flag, char *str, int sign, t_arg *arg)
 
 void	ft_printf_int(t_arg *arg)
 {
-	int		nbr;
+	long    nbr;
 	int		sign;
 	char	*str;
 	int		len;

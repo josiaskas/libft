@@ -50,6 +50,11 @@ void	ft_printf_char(t_arg *arg);
 void	ft_printf_str(t_arg *arg);
 void	ft_printf_pointer(t_arg *arg);
 void	ft_printf_int(t_arg *arg);
+void    ft_printf_unsigned(t_arg *arg);
+
+void	ft_print_with_zero_str(t_arg *arg, char *str, int len);
+void    ft_print_right_aligned_str(t_arg *arg, char *str, int len);
+void	ft_print_left_aligned_str(t_arg *arg, char *str, int len);
 
 char	*ft_precision_spaces(char *str, int precision, int len, t_arg *arg);
 char	*ft_precision_zeros(char *str, int precision, int len);
