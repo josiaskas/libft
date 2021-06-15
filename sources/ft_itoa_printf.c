@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 20:58:58 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/04 23:05:32 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/14 23:03:52 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static size_t	ft_nbr_char(int big)
+static size_t	ft_nbr_char(long big)
 {
 	size_t	nbr;
 

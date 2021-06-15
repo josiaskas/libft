@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:44:37 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/27 16:32:52 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/14 19:43:59 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
+#    By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 20:02:38 by jkasongo          #+#    #+#              #
-#    Updated: 2021/06/04 23:03:37 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/06/14 21:15:51 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 
 SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
-#objs
+#objsm
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
