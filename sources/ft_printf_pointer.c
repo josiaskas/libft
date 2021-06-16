@@ -81,7 +81,7 @@ static void	print_special(char *flag, int len, char *str, t_arg *arg)
 	int		width;
 
 	arg->written = 0;
-	str_part = 0;
+	str_part = NULL;
 	if (arg->part[2])
 	{
 		str_part = ft_precision_zeros(str, arg->max_precision, len);

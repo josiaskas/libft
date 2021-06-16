@@ -86,12 +86,10 @@ static void	ft_print_left_aligned(t_arg *arg, char *str, int len, int sign)
 static void	print_special(char *flag, char *str, int sign, t_arg *arg)
 {
 	char	*str_precised;
-	char	*tmp;
 	int		len;
 
 	arg->written = 0;
-	str_precised = 0;
-	tmp = 0;
+	str_precised = NULL;
 	len = ft_strlen(str);
 	if (arg->part[2] && (arg->max_precision > len))
 		str_precised = ft_precision_zeros(str, arg->max_precision, len);

@@ -38,4 +38,6 @@ void	ft_write_arg_data(t_arg *arg)
 		ft_printf_int(arg);
     if (arg->arg_type == 'u')
         ft_printf_unsigned(arg);
+    if ((arg->arg_type == 'x') || (arg->arg_type == 'X'))
+        ft_printf_hexadecimal(arg);
 }

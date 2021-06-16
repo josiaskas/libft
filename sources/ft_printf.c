@@ -65,9 +65,7 @@ static int	ft_loop_format(t_arg *arg)
 	while (arg->format[arg->cursor] != 0)
 	{
 		if (arg->format[arg->cursor] == '%')
-		{
-			written += ft_write_arg(arg);
-		}
+            written += ft_write_arg(arg);
 		else
 		{
 			ft_putchar_fd(arg->format[arg->cursor], STDOUT_FILENO);

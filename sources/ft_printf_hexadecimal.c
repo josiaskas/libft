@@ -38,15 +38,31 @@ static void	print_special(char *flag, char *str, t_arg *arg)
 	free(str_precised);
 }
 
-void	ft_printf_unsigned(t_arg *arg)
+static void to_uppercase(char *str)
 {
-	long	nbr;
-	char	*str;
-	int		len;
+    int i;
 
-	nbr = (long)va_arg(arg->args, unsigned int);
-	str = ft_itoa_printf(nbr);
+    i = 0;
+    while (str[i])
+    {
+        str[i] = ft_toupper(str[i]);
+        i++;
+    }
+}
+
+// 64bits max number is 16 char to write it in base 16
+void	ft_printf_hexadecimal(t_arg *arg)
+{
+	unsigned int    nbr;
+	char	        str[16 + 1];
+	int		        len;
+
+	nbr = va_arg(arg->args, unsigned int);
+    ft_bzero(str, 17);
+	ft_itoa_hex(str, nbr);
 	len = ft_strlen(str);
+	if (arg->arg_type == 'X')
+        to_uppercase(str);
 	if (arg->part[0] || arg->part[1] || arg->part[2])
 		print_special(arg->flag, str, arg);
 	else
@@ -54,6 +70,5 @@ void	ft_printf_unsigned(t_arg *arg)
 		ft_putstr_fd(str, STDOUT_FILENO);
 		arg->written = len;
 	}
-	free(str);
 	return ;
 }
