@@ -35,6 +35,7 @@ void	ft_parse_precision(t_arg *arg)
 	char	c;
 
 	precision = 0;
+    arg->part[2] = 0;
 	if ((arg->format[arg->cursor]) != '.')
 		return ;
 	arg->max_precision = 0;

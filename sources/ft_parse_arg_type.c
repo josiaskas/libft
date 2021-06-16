@@ -17,6 +17,7 @@ void	ft_parse_arg_type(t_arg *arg)
 	char	c;
 
 	c = arg->format[arg->cursor];
+    arg->part[3] = 0;
 	if ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
 		|| (c == 'u') || (c == 'x') || (c == 'X'))
 	{

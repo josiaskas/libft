@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c -g
+CFLAGS = -Wall -Wextra -Werror -c
 INCLUDES = -I./includes
 
 #source
@@ -32,7 +32,7 @@ all : $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) re -C ./libft
-	@cp libft/libft.a $(NAME)
+	@cp ./libft/libft.a $(NAME)
 	ar -rcs $(NAME) $(OBJS)
 
 $(OBJS) : $(SRCS_PREFIXED)
@@ -48,10 +48,7 @@ fclean : clean
 
 re : fclean all
 
-test : all
-	$(CC)  -g -o test1 test1.c -L. -lftprintf
-
 help	:
 	@echo "all $(NAME) clean fclean re \033[0;32m help\033[0;39m"
 
-.PHONY	: all clean fclean re bonus test help
+.PHONY	: all clean fclean re bonus help
