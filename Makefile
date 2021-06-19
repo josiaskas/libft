@@ -48,11 +48,6 @@ fclean : clean
 
 re : fclean all
 
-test:	re
-	@$(CC) -Wall -Wextra -Werror -g -o test_exec test1.c -L. -lftprintf
-	@echo "++++testing+++++"
-	@./test_exec
-
 help	:
 	@echo "all $(NAME) clean fclean re \033[0;32m help\033[0;39m"
 
