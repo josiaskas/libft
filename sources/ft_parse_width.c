@@ -36,6 +36,7 @@ void	ft_parse_width(t_arg *arg)
 
 	width = 0;
 	arg->part[1] = 0;
+    arg->min_width = 0;
 	c = arg->format[arg->cursor];
 	if (c == '*')
 	{

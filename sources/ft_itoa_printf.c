@@ -48,7 +48,7 @@ char	*ft_itoa_printf(long n)
 	size_t	len;
 
 	len = ft_nbr_char(n);
-	str = malloc(len + 2);
+	str = ft_calloc(1, len + 2);
 	if (!str)
 		return (0);
 	ft_putnbr_str(n, str, len);

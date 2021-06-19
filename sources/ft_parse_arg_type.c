@@ -19,7 +19,7 @@ void	ft_parse_arg_type(t_arg *arg)
 	c = arg->format[arg->cursor];
     arg->part[3] = 0;
 	if ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
-		|| (c == 'u') || (c == 'x') || (c == 'X'))
+		|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'))
 	{
 		arg->arg_type = c;
 		arg->cursor++;
@@ -41,4 +41,6 @@ void	ft_write_arg_data(t_arg *arg)
         ft_printf_unsigned(arg);
     if ((arg->arg_type == 'x') || (arg->arg_type == 'X'))
         ft_printf_hexadecimal(arg);
+    if (arg->arg_type == '%')
+        ft_printf_pourcentage(arg);
 }

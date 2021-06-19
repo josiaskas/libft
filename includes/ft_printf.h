@@ -53,6 +53,7 @@ void	ft_printf_pointer(t_arg *arg);
 void	ft_printf_int(t_arg *arg);
 void    ft_printf_unsigned(t_arg *arg);
 void	ft_printf_hexadecimal(t_arg *arg);
+void	ft_printf_pourcentage(t_arg *arg);
 
 void	ft_print_with_zero_str(t_arg *arg, char *str, int len);
 void    ft_print_right_aligned_str(t_arg *arg, char *str, int len);

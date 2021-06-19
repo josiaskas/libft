@@ -74,26 +74,25 @@ void	ft_print_left_aligned_str(t_arg *arg, char *str, int len)
 
 void	print_special(char *flag, int len, char *str, t_arg *arg)
 {
-	char	*str_part;
+	char	*tmp;
 
 	arg->written = 0;
-	str_part = 0;
-	if (arg->part[2])
+	tmp = 0;
+	if (arg->part[2] && (arg->max_precision < len))
 	{
-		str_part = ft_precision_spaces(str, arg->max_precision, len, arg);
-		len = ft_strlen(str_part);
+		tmp = ft_strndup(str, arg->max_precision);
+		str = tmp;
+		len = arg->max_precision;
 	}
-	else
-		str_part = ft_strndup(str, len);
 	if (flag[e_minus])
-		ft_print_left_aligned_str(arg, str_part, len);
+		ft_print_left_aligned_str(arg, str, len);
 	else if (flag[e_zero])
-		ft_print_with_zero_str(arg, str_part, len);
+		ft_print_with_zero_str(arg, str, len);
 	else if (arg->part[1] && (arg->min_width < 0))
-		ft_print_left_aligned_str(arg, str_part, len);
+		ft_print_left_aligned_str(arg, str, len);
 	else
-		ft_print_right_aligned_str(arg, str_part, len);
-	free(str_part);
+		ft_print_right_aligned_str(arg, str, len);
+	free(tmp);
 	return ;
 }
 

@@ -21,7 +21,7 @@ SRCS = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 		ft_parse_precision.c ft_parse_width.c \
 		ft_printf_char.c ft_printf_str.c ft_utils.c\
 		ft_printf_pointer.c ft_printf_int.c ft_itoa_printf.c\
-		ft_printf_unsigned.c ft_printf_hexadecimal.c
+		ft_printf_unsigned.c ft_printf_hexadecimal.c ft_printf_pourcentage.c
 
 SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
@@ -48,7 +48,12 @@ fclean : clean
 
 re : fclean all
 
+test:	re
+	@$(CC) -Wall -Wextra -Werror -g -o test_exec test1.c -L. -lftprintf
+	@echo "++++testing+++++"
+	@./test_exec
+
 help	:
 	@echo "all $(NAME) clean fclean re \033[0;32m help\033[0;39m"
 
-.PHONY	: all clean fclean re bonus help
+.PHONY	: all clean fclean re bonus help test

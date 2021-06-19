@@ -91,9 +91,11 @@ static void	print_special(char *flag, char *str, int sign, t_arg *arg)
 	arg->written = 0;
 	str_precised = NULL;
 	len = ft_strlen(str);
+	if (arg->flag[e_space] && (sign > 0) && (!arg->flag[e_plus]))
+	    write(STDOUT_FILENO, " ", 1);
 	if (arg->part[2] && (arg->max_precision > len))
 		str_precised = ft_precision_zeros(str, arg->max_precision, len);
-	else if (str[0] == '0' && arg->max_precision == 0)
+	else if (str[0] == '0' && (arg->part[2] && arg->max_precision == 0))
 		str_precised = ft_strndup("", 2);
 	else
 		str_precised = ft_strndup(str, len);

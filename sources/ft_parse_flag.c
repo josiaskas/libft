@@ -31,6 +31,10 @@ void	ft_parse_flag(t_arg *arg)
 
 	c = arg->format[arg->cursor];
     arg->part[0] = 0;
+    arg->flag[e_minus] = 0;
+    arg->flag[e_zero] = 0;
+    arg->flag[e_space] = 0;
+    arg->flag[e_plus] = 0;
 	while ((c == '-') || (c == '+') || (c == ' ') || (c == '#') || (c == '0'))
 	{
 		arg->flag[ft_transform_flag(c)] = 1;
