@@ -19,9 +19,9 @@ INCLUDES = -I./includes
 SRCS_DIR = sources/
 SRCS = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 		ft_parse_precision.c ft_parse_width.c \
-		ft_printf_char.c ft_printf_str.c ft_utils.c\
-		ft_printf_pointer.c ft_printf_int.c ft_itoa_printf.c\
-		ft_printf_unsigned.c ft_printf_hexadecimal.c ft_printf_pourcentage.c
+		ft_printf_utils.c ft_printf_itoa.c ft_solve_char.c\
+		ft_solve_str.c ft_solve_pointer.c ft_solve_int.c\
+		ft_solve_unsigned.c ft_solve_hexadecimal.c ft_solve_pourcentage.c
 
 SRCS_PREFIXED = $(addprefix $(SRCS_DIR), $(SRCS))
 
@@ -51,4 +51,4 @@ re : fclean all
 help	:
 	@echo "all $(NAME) clean fclean re \033[0;32m help\033[0;39m"
 
-.PHONY	: all clean fclean re bonus help test
+.PHONY	: all clean fclean re help
