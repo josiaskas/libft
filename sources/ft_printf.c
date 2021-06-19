@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:28 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/26 14:00:51 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:33:56 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,16 @@ static int	ft_loop_format(t_arg *arg)
 	written = 0;
 	while (arg->format[arg->cursor] != 0)
 	{
-		if ((arg->format[arg->cursor] == '%') && (arg->format[arg->cursor + 1] != '%'))
-            written += ft_write_arg(arg);
-		else if ((arg->format[arg->cursor] == '%') && (arg->format[arg->cursor + 1] == '%'))
-        {
-            ft_putchar_fd(arg->format[arg->cursor + 1], STDOUT_FILENO);
-            written++;
-            arg->cursor += 2;
-        }
+		if ((arg->format[arg->cursor] == '%')
+			&& (arg->format[arg->cursor + 1] != '%'))
+			written += ft_write_arg(arg);
+		else if ((arg->format[arg->cursor] == '%')
+			&& (arg->format[arg->cursor + 1] == '%'))
+		{
+			ft_putchar_fd(arg->format[arg->cursor + 1], STDOUT_FILENO);
+			written++;
+			arg->cursor += 2;
+		}
 		else
 		{
 			ft_putchar_fd(arg->format[arg->cursor], STDOUT_FILENO);

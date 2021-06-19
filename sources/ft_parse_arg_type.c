@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_arg_type.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:53:47 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/04 21:31:40 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:32:23 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parse_arg_type(t_arg *arg)
 	char	c;
 
 	c = arg->format[arg->cursor];
-    arg->part[3] = 0;
+	arg->part[3] = 0;
 	if ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
 		|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'))
 	{
@@ -37,10 +37,10 @@ void	ft_write_arg_data(t_arg *arg)
 		ft_printf_pointer(arg);
 	if ((arg->arg_type == 'd') || (arg->arg_type == 'i'))
 		ft_printf_int(arg);
-    if (arg->arg_type == 'u')
-        ft_printf_unsigned(arg);
-    if ((arg->arg_type == 'x') || (arg->arg_type == 'X'))
-        ft_printf_hexadecimal(arg);
-    if (arg->arg_type == '%')
-        ft_printf_pourcentage(arg);
+	if (arg->arg_type == 'u')
+		ft_printf_unsigned(arg);
+	if ((arg->arg_type == 'x') || (arg->arg_type == 'X'))
+		ft_printf_hexadecimal(arg);
+	if (arg->arg_type == '%')
+		ft_printf_pourcentage(arg);
 }

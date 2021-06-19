@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:54:46 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/25 17:48:23 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:32:43 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	ft_parse_flag(t_arg *arg)
 	char	c;
 
 	c = arg->format[arg->cursor];
-    arg->part[0] = 0;
-    arg->flag[e_minus] = 0;
-    arg->flag[e_zero] = 0;
-    arg->flag[e_space] = 0;
-    arg->flag[e_plus] = 0;
+	arg->part[0] = 0;
+	arg->flag[e_minus] = 0;
+	arg->flag[e_zero] = 0;
+	arg->flag[e_space] = 0;
+	arg->flag[e_plus] = 0;
 	while ((c == '-') || (c == '+') || (c == ' ') || (c == '#') || (c == '0'))
 	{
 		arg->flag[ft_transform_flag(c)] = 1;

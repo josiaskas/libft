@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:44:37 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/14 19:43:59 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:32:54 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_parse_precision(t_arg *arg)
 	char	c;
 
 	precision = 0;
-    arg->part[2] = 0;
+	arg->part[2] = 0;
 	if ((arg->format[arg->cursor]) != '.')
 		return ;
 	arg->max_precision = 0;

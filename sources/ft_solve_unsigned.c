@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_unsigned.c                                    :+:      :+:    :+:   */
+/*   ft_solve_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 20:51:04 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/14 23:09:21 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:42:47 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void	print_special(char *flag, char *str, t_arg *arg)
 		str_precised = ft_strdup(str);
 	len = ft_strlen(str_precised);
 	if (flag[e_minus])
-        ft_print_left_aligned_str(arg, str_precised, len);
+		ft_print_left_aligned_str(arg, str_precised, len);
 	else if (flag[e_zero] && (!arg->part[2]) && (arg->min_width > 0))
-        ft_print_with_zero_str(arg, str_precised, len);
+		ft_print_with_zero_str(arg, str_precised, len);
 	else if (arg->part[1] && (arg->min_width < 0))
-        ft_print_left_aligned_str(arg, str_precised, len);
+		ft_print_left_aligned_str(arg, str_precised, len);
 	else
-        ft_print_right_aligned_str(arg, str_precised, len);
+		ft_print_right_aligned_str(arg, str_precised, len);
 	free(str_precised);
 }
 

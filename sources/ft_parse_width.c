@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:54:23 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/14 19:43:49 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:33:06 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_parse_width(t_arg *arg)
 
 	width = 0;
 	arg->part[1] = 0;
-    arg->min_width = 0;
+	arg->min_width = 0;
 	c = arg->format[arg->cursor];
 	if (c == '*')
 	{

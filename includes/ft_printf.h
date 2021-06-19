@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:08 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/14 21:16:13 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/06/19 06:31:14 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	ft_printf_char(t_arg *arg);
 void	ft_printf_str(t_arg *arg);
 void	ft_printf_pointer(t_arg *arg);
 void	ft_printf_int(t_arg *arg);
-void    ft_printf_unsigned(t_arg *arg);
+void	ft_printf_unsigned(t_arg *arg);
 void	ft_printf_hexadecimal(t_arg *arg);
 void	ft_printf_pourcentage(t_arg *arg);
 
 void	ft_print_with_zero_str(t_arg *arg, char *str, int len);
-void    ft_print_right_aligned_str(t_arg *arg, char *str, int len);
+void	ft_print_right_aligned_str(t_arg *arg, char *str, int len);
 void	ft_print_left_aligned_str(t_arg *arg, char *str, int len);
 
 char	*ft_precision_spaces(char *str, int precision, int len, t_arg *arg);
