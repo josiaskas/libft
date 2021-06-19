@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror -c -g
 INCLUDES = -I./includes
 
 #source

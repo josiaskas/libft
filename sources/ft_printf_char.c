@@ -18,14 +18,17 @@ static void	ft_print_with_zero(t_arg *arg, int width)
 
 	if (width < 0)
 		width = (-1) * width;
-	arg->written = width;
+	if (width > 1)
+	    arg->written = width;
+	else
+	    arg->written = 1;
 	while ((width - 1) > 0)
 	{
 		write(STDOUT_FILENO, "0", 1);
 		width--;
 	}
 	c = va_arg(arg->args, int);
-	write(STDOUT_FILENO, &c, 1);
+    ft_putchar_fd(c,STDOUT_FILENO);
 	return ;
 }
 
@@ -35,14 +38,17 @@ static void	ft_print_rigth_aligned(t_arg *arg, int width)
 
 	if (width < 0)
 		width *= -1;
-	arg->written = width;
+    if (width > 1)
+        arg->written = width;
+    else
+        arg->written = 1;
 	while ((width - 1) > 0)
 	{
 		write(STDOUT_FILENO, " ", 1);
 		width--;
 	}
 	c = va_arg(arg->args, int);
-	write(STDOUT_FILENO, &c, 1);
+	ft_putchar_fd(c,STDOUT_FILENO);
 	return ;
 }
 
@@ -54,7 +60,10 @@ static void	ft_print_left_aligned(t_arg *arg, int width)
 		width *= -1;
 	c = va_arg(arg->args, int);
 	write(STDOUT_FILENO, &c, 1);
-	arg->written = width;
+    if (width > 1)
+        arg->written = width;
+    else
+        arg->written = 1;
 	while ((width - 1) > 0)
 	{
 		write(STDOUT_FILENO, " ", 1);
@@ -100,7 +109,7 @@ void	ft_printf_char(t_arg *arg)
 		if (c == 0)
 			write(STDOUT_FILENO, "\x00", 1);
 		else
-			write(STDOUT_FILENO, &c, 1);
+            ft_putchar_fd(c,STDOUT_FILENO);
 		arg->written = 1;
 	}
 }

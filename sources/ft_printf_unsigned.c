@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int.c                                    :+:      :+:    :+:   */
+/*   ft_printf_unsigned.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,10 +22,10 @@ static void	print_special(char *flag, char *str, t_arg *arg)
 	len = ft_strlen(str);
 	if (arg->part[2] && (arg->max_precision > len))
 		str_precised = ft_precision_zeros(str, arg->max_precision, len);
-	else if ((str[0] == '0') && (arg->max_precision == 0))
-		str_precised = ft_strndup("", 2);
+	else if ((str[0] == '0') && (arg->part[2] && arg->max_precision == 0))
+		str_precised = ft_strdup("");
 	else
-		str_precised = ft_strndup(str, len);
+		str_precised = ft_strdup(str);
 	len = ft_strlen(str_precised);
 	if (flag[e_minus])
         ft_print_left_aligned_str(arg, str_precised, len);
