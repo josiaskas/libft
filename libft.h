@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/11 16:44:26 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/05/28 13:45:38 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //personal
 char	*ft_strndup(const char *s1, size_t n);
 int		ft_isspace(int c);
+char	*ft_strrev(char *str);
 #endif
