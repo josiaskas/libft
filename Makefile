@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/08/07 22:06:47 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/08/07 22:45:38 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,23 +32,36 @@ SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
 		 ft_lstadd_back.c ft_lstclear.c ft_lstlast.c \
 		ft_lstnew.c ft_lstadd_front.c ft_lstdelone.c \
 		ft_lstiter.c ft_lstmap.c ft_lstsize.c\
-		ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
+
+#printf
+PRINTF_DIR = printf/
+PRINTF = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 		ft_parse_precision.c ft_parse_width.c \
 		ft_printf_utils.c ft_printf_itoa.c ft_solve_char.c\
 		ft_solve_str.c ft_solve_pointer.c ft_solve_int.c\
 		ft_solve_unsigned.c ft_solve_hexadecimal.c ft_solve_pourcentage.c
 
+SRCS_PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF))
+
+#objects
 OBJS = $(SRCS:%.c=%.o)
+OBJS_PRINTF = $(PRINTF:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME):$(OBJS_PRINTF)
 	@$(CC) $(CFLAGS) $(SRCS)
-	@ar rcs $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS_PRINTF)
+	@echo "ft_printf added to libft"
 	@echo "libft.a builded"
+
+$(OBJS_PRINTF) : $(SRCS_PRINTF)
+	@$(CC) $(CFLAGS) $(SRCS_PRINTF)
 
 clean:
 	@rm -f $(OBJS)
+	@rm -f $(OBJS_PRINTF)
 
 fclean: clean
 	@rm -f $(NAME)

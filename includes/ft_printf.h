@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 13:18:08 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/07 22:03:26 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/07 22:17:40 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdarg.h>
-# include "libft.h"
+# include "../libft.h"
 
 typedef struct s_arg
 {
