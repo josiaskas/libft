@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/28 13:45:38 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/07 22:03:07 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "printf.h"
 
 typedef struct s_list
 {
