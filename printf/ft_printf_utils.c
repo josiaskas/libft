@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:41:20 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/06/04 23:21:06 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/07 23:00:03 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_precision_spaces(char *str, int precision, int len, t_arg *arg)
 		diff = 0;
 	if (!arg->part[1])
 		diff = 0;
-	ft_strlcpy((cpy + diff), str, (precision +1));
+	ft_strlcpy((cpy + diff), str, (precision + 1));
 	return (cpy);
 }
 
