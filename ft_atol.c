@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 13:16:58 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/09 13:32:07 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/09 15:12:41 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ long	ft_atol(const char *str)
 	int		sign;
 	int		i;
 
-	nbr = 0;
+	nbr = -2147483648;
 	i = 0;
 	sign = 1;
 	if (!str)
