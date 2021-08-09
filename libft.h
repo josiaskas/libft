@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/07 22:20:59 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/09 14:12:08 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 }		t_list;
 
 void	*ft_memset(void *b, int c, size_t len);
+// fill the pointer up to size n with 0
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -44,6 +45,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+// string to int +(-)0123456789
 int		ft_atoi(const char *str);
 
 void	*ft_calloc(size_t count, size_t size);
@@ -73,7 +75,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //personal
+
+// return a malloc pointer du duplicated string up to n char
 char	*ft_strndup(const char *s1, size_t n);
+// return 1 or 0 if a space char is found (\t \n \r \v) included
 int		ft_isspace(int c);
+// return the same pointer, reverse the string without touching '\0'
 char	*ft_strrev(char *str);
+// string to long
+long	ft_atol(const char *str);
 #endif
