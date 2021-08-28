@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/09 14:12:08 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/28 12:18:13 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./includes/ft_printf.h"
+# include "./includes/stack.h"
+# include "./includes/array_utils.h"
 
 typedef struct s_list
 {
@@ -84,4 +86,10 @@ int		ft_isspace(int c);
 char	*ft_strrev(char *str);
 // string to long
 long	ft_atol(const char *str);
+// memory utils
+
+// free stack by poping and free content value inside
+void	free_stack(t_stack *stack);
+// free memory for two dimension arrays
+void	free_array(void **array, size_t size);
 #endif
