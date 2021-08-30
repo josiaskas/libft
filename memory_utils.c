@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 14:22:27 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/30 12:59:20 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:04:57 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@ void	free_array(void **array, size_t size)
 	free(array);
 	array = NULL;
 	return ;
-}
-
-void	free_char_array(char **array, size_t size)
-{
-	size_t i;
-
-	if (!array)
-		return;
-	i = 0;
-	while (i < size)
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-	array = NULL;
-	return;
 }
 
 void	free_stack(t_stack *stack)
