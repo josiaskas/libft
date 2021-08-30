@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 22:28:59 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/28 12:10:40 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/30 10:10:18 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ int	*ft_slice_int(const int original[], int begin, int end)
 		{
 			while (original[i])
 			{
-				if ((i >= begin) && (i <= end))
+				if ((i >= begin) && (i < end))
+				{
 					copy[j] = original[i];
+					j++;
+				}
+				if (i == end)
+					break ;
 				i++;
 			}
 		}
