@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/28 12:18:13 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/30 12:59:55 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,5 @@ long	ft_atol(const char *str);
 void	free_stack(t_stack *stack);
 // free memory for two dimension arrays
 void	free_array(void **array, size_t size);
+void	free_char_array(char **array, size_t size);
 #endif
