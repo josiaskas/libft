@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 14:35:03 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/11 20:24:52 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/08/31 16:37:25 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ bool	swap(t_stack *stack)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
+	void			*temp;
 
 	if (stack == 0)
 		return (false);
@@ -23,11 +24,9 @@ bool	swap(t_stack *stack)
 		return (false);
 	first = stack->head;
 	second = first->next;
-	stack->head = second;
-	first->next = second->next;
-	second->next = first;
-	if (stack->length == 2)
-		stack->bottom = first;
+	temp = first->content;
+	first->content = second->content;
+	second->content = temp;
 	return (true);
 }
 
