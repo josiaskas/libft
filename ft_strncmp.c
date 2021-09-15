@@ -6,11 +6,11 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 02:23:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/05/06 02:23:41 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/09/15 15:22:05 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "libft.h"
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
