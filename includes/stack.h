@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 12:52:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/09 16:40:44 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:44:27 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define MAX_INT_VALUE 2147483647
 # include <stdbool.h>
 # include <stdlib.h>
+
 typedef struct s_stack_node
 {
 	void				*content;
