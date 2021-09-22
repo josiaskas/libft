@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/30 12:59:55 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/09/22 01:46:35 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "./includes/ft_printf.h"
 # include "./includes/stack.h"
 # include "./includes/array_utils.h"
+# include "./includes/get_next_line.h"
 
 typedef struct s_list
 {
@@ -41,6 +42,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+// find first occurance of c and return the pointer or NULL
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

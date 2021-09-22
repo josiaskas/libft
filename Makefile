@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/08/28 12:24:50 by jkasongo         ###   ########.fr        #
+#    Updated: 2021/09/22 01:52:39 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,22 +54,30 @@ ARRAY_DIR = arrays/
 ARRAY = sort_utils.c ft_slice.c
 SRCS_ARRAY = $(addprefix $(ARRAY_DIR), $(ARRAY))
 
+#get_next_line
+GNL_DIR = get_next_line/
+GNL = get_next_line.c
+SRCS_GNL = $(addprefix $(GNL_DIR), $(GNL))
+
 #objects
 OBJS = $(SRCS:%.c=%.o)
 OBJS_PRINTF = $(PRINTF:%.c=%.o)
 OBJS_STACK = $(STACK:%.c=%.o)
 OBJS_ARRAY = $(ARRAY:%.c=%.o)
+OBJS_GNL = $(GNL:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY)
+$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL)
 	@$(CC) $(CFLAGS) $(SRCS)
 	@ar rc $(NAME) $(OBJS)
 	@ar rc $(NAME) $(OBJS_PRINTF)
 	@echo "ft_printf added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
 	@echo "stack added to libft"
-	@ar -rcs $(NAME) $(OBJS_ARRAY)
+	@ar rc $(NAME) $(OBJS_ARRAY)
+	@echo "gnl added to libft"
+	@ar -rcs $(NAME) $(OBJS_GNL)
 	@echo "libft.a builded"
 
 $(OBJS_PRINTF) : $(SRCS_PRINTF)
@@ -81,11 +89,15 @@ $(OBJS_STACK) : $(SRCS_STACK)
 $(OBJS_ARRAY) : $(SRCS_ARRAY)
 	@$(CC) $(CFLAGS) $(SRCS_ARRAY)
 
+$(OBJS_GNL) : $(SRCS_GNL)
+	@$(CC) $(CFLAGS) $(SRCS_GNL)
+
 clean:
 	@rm -f $(OBJS)
 	@rm -f $(OBJS_PRINTF)
 	@rm -f $(OBJS_STACK)
 	@rm -f $(OBJS_ARRAY)
+	@rm -f $(OBJS_GNL)
 
 fclean: clean
 	@rm -f $(NAME)
