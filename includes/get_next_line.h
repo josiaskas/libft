@@ -22,7 +22,7 @@
 #  define MAX_FD 65535
 # endif
 
-// get line by line (separate by \n) of a file
+// get line by line of a file
 int	get_next_line(int fd, char **line);
 
 #endif
