@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/09/22 01:46:35 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/09/28 13:24:55 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,6 @@ void	free_stack(t_stack *stack);
 // free memory for two dimension arrays
 void	free_array(void **array, size_t size);
 void	free_char_array(char **array, size_t size);
+void	ft_free_splitted(char **arr);
+int		ft_atoi_base(const char *str, int base);
 #endif

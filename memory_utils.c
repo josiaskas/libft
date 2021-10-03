@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 14:22:27 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/09/21 16:43:09 by jkasongo         ###   ########.fr       */
+/*   Updated: 2021/09/28 13:23:18 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,18 @@ void	free_stack(t_stack *stack)
 	free(stack);
 	stack = NULL;
 	return ;
+}
+
+void	ft_free_splitted(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr[i]);
+	free(arr);
 }
