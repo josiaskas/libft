@@ -3,9 +3,8 @@
 Implementation of some of the Standard C Library functions including some additional ones.
 
 _If you need the 42 project without any upgrade switch on master branch_
-**Makefile : CFLAGS = -Wall -Wextra -Werror -c -g** _(you can change -g)_
 
-Verions may change with time on shinsekai branch.
+**Makefile : CFLAGS = -Wall -Wextra -Werror -c -g** _(you can change -g)_
 
 Addition made to the 42 project for later projects : 
 
