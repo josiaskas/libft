@@ -7,7 +7,7 @@ _If you need the 42 project without any upgrade switch on master branch_
 
 Verions may change with time on shinsekai branch.
 
-Some of addition made to the 42 project useful for later projects : 
+Addition made to the 42 project for later projects : 
 
 ## PRINTF
 
