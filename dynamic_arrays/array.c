@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 18:24:43 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/24 23:53:37 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:25:22 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,57 @@ void	*ft_get_elem(t_array *array, size_t index)
 		return (0);
 	content = node->content;
 	return (content);
+}
+
+/*
+* Take an array and apply the f function, wich return pointers to result
+* Return an array of size array->lengh contening pointers of f results
+* [void *p1, void *p2, ...]
+*/
+void	**map(t_array *array, void *(*f)(void *, int index))
+{
+	void			**results;
+	size_t			i;
+	t_array_node	*node;
+
+	i = 0;
+	if (!array)
+		return (0);
+	if (!array->length)
+		return(0);
+	node = array->head;
+	results = ft_calloc(array->length, sizeof(void *));
+	if (!results)
+		return (0);
+	while (i < array->length)
+	{
+		results[i] = f(node->content, i);
+		node = node->next;
+		i++;
+	}
+	return (results);
+}
+
+/*
+ * Take an array and apply the f function on each element
+ * Return (bool) true if f was applied
+ */
+bool	ft_for_each(t_array *array, void (*apply)(void *, int index))
+{
+	t_array_node	*node;
+	size_t			i;
+
+	i = 0;
+	if (!array)
+		return (0);
+	if (!array->length)
+		return (0);
+	node = array->head;
+	while (i < array->length)
+	{
+		apply(node->content, i);
+		node = node->next;
+		i++;
+	}
+	return (true);
 }

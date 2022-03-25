@@ -6,14 +6,14 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/09/26 01:19:37 by jkasongo         ###   ########.fr        #
+#    Updated: 2022/03/25 02:01:56 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Librairie personnel pour les projets en C
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c -g
+CFLAGS = -Wall -Wextra -Werror -g
 
 #source
 SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
@@ -44,6 +44,11 @@ PRINTF = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 
 SRCS_PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF))
 
+#dynamic
+DYNAMIC_DIR = dynamic_arrays/
+DYNAMIC = memory.c array.c dictionary.c
+SRCS_DYNAMIC = $(addprefix $(DYNAMIC_DIR), $(DYNAMIC))
+
 #stack
 STACK_DIR = stack/
 STACK = stack.c stack_utils.c
@@ -61,18 +66,21 @@ SRCS_GNL = $(addprefix $(GNL_DIR), $(GNL))
 
 #objects
 OBJS = $(SRCS:%.c=%.o)
-OBJS_PRINTF = $(PRINTF:%.c=%.o)
-OBJS_STACK = $(STACK:%.c=%.o)
-OBJS_ARRAY = $(ARRAY:%.c=%.o)
-OBJS_GNL = $(GNL:%.c=%.o)
+OBJS_PRINTF = $(SRCS_PRINTF:%.c=%.o)
+OBJS_DYNAMIC = $(SRCS_DYNAMIC:%.c=%.o)
+OBJS_STACK = $(SRCS_STACK:%.c=%.o)
+OBJS_ARRAY = $(SRCS_ARRAY:%.c=%.o)
+OBJS_GNL = $(SRCS_GNL:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL)
-	@$(CC) $(CFLAGS) $(SRCS)
+$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL) $(OBJS_DYNAMIC)
+	@$(CC) $(CFLAGS) -c $(SRCS)
 	@ar rc $(NAME) $(OBJS)
 	@ar rc $(NAME) $(OBJS_PRINTF)
 	@echo "ft_printf added to libft"
+	@ar rc $(NAME) $(OBJS_STACK)
+	@echo "dynamic arrays added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
 	@echo "stack added to libft"
 	@ar rc $(NAME) $(OBJS_ARRAY)
@@ -80,23 +88,27 @@ $(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL)
 	@ar -rcs $(NAME) $(OBJS_GNL)
 	@echo "libft.a builded"
 
-$(OBJS_PRINTF) : $(SRCS_PRINTF)
-	@$(CC) $(CFLAGS) $(SRCS_PRINTF)
+$(PRINTF_DIR)%.o : $(SRCS_PRINTF)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJS_STACK) : $(SRCS_STACK)
-	@$(CC) $(CFLAGS) $(SRCS_STACK)
+$(DYNAMIC_DIR)%.o : $(SRCS_DYNAMIC)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJS_ARRAY) : $(SRCS_ARRAY)
-	@$(CC) $(CFLAGS) $(SRCS_ARRAY)
+$(STACK_DIR)%.o : $(SRCS_STACK)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJS_GNL) : $(SRCS_GNL)
-	@$(CC) $(CFLAGS) $(SRCS_GNL)
+$(ARRAY_DIR)%.o : $(SRCS_ARRAY)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(GNL_DIR)%.o : $(SRCS_GNL)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)
 	@rm -f $(OBJS_PRINTF)
 	@rm -f $(OBJS_STACK)
 	@rm -f $(OBJS_ARRAY)
+	@rm -f $(OBJS_DYNAMIC)
 	@rm -f $(OBJS_GNL)
 
 fclean: clean

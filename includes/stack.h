@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 12:52:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/24 18:13:10 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:38:56 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_stack
 
 t_stack			*create_stack(void);
 // push value on the stack return true when pushed (false)
-bool			push_to_stack(t_stack *stack, void *content);
+bool			push_s(t_stack *stack, void *content);
 // return the pointer to value inside or 0
-void			*pop_to_stack(t_stack *stack);
+void			*pop_s(t_stack *stack);
 // return the head value without destroying the node (error = MIN_VALUE)
 void			*peak(t_stack *stack);
 // return an Array of results of callback function without changing the stack

@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 13:09:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/24 18:06:22 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/25 01:37:01 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*create_stack(void)
 	return (stack);
 }
 
-bool	push_to_stack(t_stack *stack, void *content)
+bool	push_s(t_stack *stack, void *content)
 {
 	t_stack_node	*node;
 
@@ -51,7 +51,7 @@ bool	push_to_stack(t_stack *stack, void *content)
 	return (true);
 }
 
-void	*pop_to_stack(t_stack *stack)
+void	*pop_s(t_stack *stack)
 {
 	t_stack_node	*node;
 	void			*content;

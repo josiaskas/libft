@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:44:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/24 23:51:18 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/25 00:12:49 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ t_array	*ft_new_array()
 	array->length = 0;
 	array->head = 0;
 	array->bottom = 0;
+	array->type = e_array_normal;
 	return (array);
 }
 
 /*
- * Push element to the end of Array
+ * Push element to the end of Array works on non dic
  * Return (bool) true if space was found and content added
  */
 bool	push(t_array *array, void *content)
 {
 	t_array_node	*node;
 
-	if (!array)
+	if (!array || (array->type == e_array_dic))
 		return (false);
 	node = (t_array_node *)ft_calloc(1, sizeof(t_array_node));
 	if (!node)
@@ -55,14 +56,14 @@ bool	push(t_array *array, void *content)
 }
 
 /*
- * Push element to the beggin of Array
+ * Push element to the beggin of Array works on non dic
  * Return (bool) true if space was found and content added
  */
 bool	ft_unshift(t_array *array, void *content)
 {
 	t_array_node *node;
 
-	if (!array)
+	if (!array || (array->type == e_array_dic))
 		return (false);
 	node = (t_array_node *)ft_calloc(1, sizeof(t_array_node));
 	if (!node)
