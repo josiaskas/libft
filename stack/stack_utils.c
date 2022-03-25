@@ -6,13 +6,13 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 14:35:03 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/31 16:37:25 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:13:02 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stack.h"
 
-bool	swap(t_stack *stack)
+bool	swap_stack(t_stack *stack)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -30,7 +30,7 @@ bool	swap(t_stack *stack)
 	return (true);
 }
 
-bool	rotate(t_stack *stack)
+bool	rotate_stack(t_stack *stack)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -40,7 +40,7 @@ bool	rotate(t_stack *stack)
 	if (stack->length <= 1)
 		return (false);
 	if (stack->length == 2)
-		return (swap(stack));
+		return (swap_stack(stack));
 	first = stack->head;
 	second = first->next;
 	stack->head = second;
@@ -58,7 +58,7 @@ bool	reverse_rotate(t_stack *stack)
 	if (stack->length <= 1)
 		return (false);
 	if (stack->length == 2)
-		return (swap(stack));
+		return (swap_stack(stack));
 	last = stack->bottom;
 	before_last = stack->head;
 	while (before_last->next != last)
@@ -68,7 +68,7 @@ bool	reverse_rotate(t_stack *stack)
 	return (true);
 }
 
-int	*map_stack(t_stack *stack, int (*apply)(void *, int index))
+int	*map_stack_i(t_stack *stack, int (*apply)(void *, int index))
 {
 	int				*results;
 	t_stack_node	*node;

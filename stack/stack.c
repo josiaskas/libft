@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkasongo <jkasongo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 13:09:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/08/08 23:14:56 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:06:22 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*create_stack(void)
 	return (stack);
 }
 
-bool	push(t_stack *stack, void *content)
+bool	push_to_stack(t_stack *stack, void *content)
 {
 	t_stack_node	*node;
 
@@ -51,7 +51,7 @@ bool	push(t_stack *stack, void *content)
 	return (true);
 }
 
-void	*pop(t_stack *stack)
+void	*pop_to_stack(t_stack *stack)
 {
 	t_stack_node	*node;
 	void			*content;
@@ -69,7 +69,7 @@ void	*pop(t_stack *stack)
 		stack->head = 0;
 	}
 	if (stack->length > 1)
-	{	
+	{
 		content = node->content;
 		stack->bottom->next = stack->head->next;
 		stack->head = stack->head->next;
