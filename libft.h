@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 12:01:26 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/09/28 13:24:55 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:34:22 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "./includes/ft_printf.h"
+# include "./includes/dynamic_arrays.h"
 # include "./includes/stack.h"
 # include "./includes/array_utils.h"
 # include "./includes/get_next_line.h"
