@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 14:22:27 by jkasongo          #+#    #+#             */
-/*   Updated: 2021/09/28 13:23:18 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:42:49 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_stack(t_stack *stack)
 		return ;
 	while (stack->length)
 	{
-		content = pop(stack);
+		content = pop_s(stack);
 		free(content);
 	}
 	free(stack);

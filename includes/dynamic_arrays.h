@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:45:33 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/04/03 19:34:14 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:41:00 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool			push(t_array *array, void *content);
 bool			push_to_dic(t_array *array, char *key, void *content);
 bool			ft_unshift(t_array *array, void *content);
 void			*pop(t_array *array);
-void			ft_free_array(t_array *array);
+void			ft_free_d_array(t_array *array);
 void			ft_free_dic(t_array *array);
 t_array_node	*ft_get_array_node(t_array *array, size_t i);
 void			*ft_get_elem(t_array *array, size_t index);

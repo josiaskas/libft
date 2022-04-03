@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory.c                                           :+:      :+:    :+:   */
+/*   d_memory.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:44:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/25 00:12:49 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:40:45 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	*pop(t_array *array)
 /*
  * Free Array and content inside
  */
-void	ft_free_array(t_array *array)
+void	ft_free_d_array(t_array *array)
 {
 	void	*content;
 
