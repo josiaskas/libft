@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2022/04/03 20:14:03 by jkasongo         ###   ########.fr        #
+#    Updated: 2022/04/03 20:17:42 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ $(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL) $(OBJS_DYNAMIC)
 	@ar rc $(NAME) $(OBJS)
 	@ar rc $(NAME) $(OBJS_PRINTF)
 	@echo "ft_printf added to libft"
+	@ar rc $(NAME) $(OBJS_DYNAMIC)
+	@echo "dynamic asrrays added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
 	@echo "stack added to libft"
 	@ar rc $(NAME) $(OBJS_ARRAY)
