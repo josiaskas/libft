@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2021/09/26 01:19:37 by jkasongo         ###   ########.fr        #
+#    Updated: 2022/04/03 20:14:03 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,11 @@ PRINTF = ft_printf.c ft_parse_arg_type.c ft_parse_flag.c\
 
 SRCS_PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF))
 
+#dynamic
+DYNAMIC_DIR = dynamic_arrays/
+DYNAMIC = d_memory.c d_array.c dictionary.c
+SRCS_DYNAMIC = $(addprefix $(DYNAMIC_DIR), $(DYNAMIC))
+
 #stack
 STACK_DIR = stack/
 STACK = stack.c stack_utils.c
@@ -62,13 +67,14 @@ SRCS_GNL = $(addprefix $(GNL_DIR), $(GNL))
 #objects
 OBJS = $(SRCS:%.c=%.o)
 OBJS_PRINTF = $(PRINTF:%.c=%.o)
+OBJS_DYNAMIC = $(DYNAMIC:%.c=%.o)
 OBJS_STACK = $(STACK:%.c=%.o)
 OBJS_ARRAY = $(ARRAY:%.c=%.o)
 OBJS_GNL = $(GNL:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL)
+$(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL) $(OBJS_DYNAMIC)
 	@$(CC) $(CFLAGS) $(SRCS)
 	@ar rc $(NAME) $(OBJS)
 	@ar rc $(NAME) $(OBJS_PRINTF)
@@ -83,6 +89,9 @@ $(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL)
 $(OBJS_PRINTF) : $(SRCS_PRINTF)
 	@$(CC) $(CFLAGS) $(SRCS_PRINTF)
 
+$(OBJS_DYNAMIC) : $(SRCS_DYNAMIC)
+	@$(CC) $(CFLAGS) $(SRCS_DYNAMIC)
+
 $(OBJS_STACK) : $(SRCS_STACK)
 	@$(CC) $(CFLAGS) $(SRCS_STACK)
 
@@ -95,6 +104,7 @@ $(OBJS_GNL) : $(SRCS_GNL)
 clean:
 	@rm -f $(OBJS)
 	@rm -f $(OBJS_PRINTF)
+	@rm -f $(OBJS_DYNAMIC)
 	@rm -f $(OBJS_STACK)
 	@rm -f $(OBJS_ARRAY)
 	@rm -f $(OBJS_GNL)

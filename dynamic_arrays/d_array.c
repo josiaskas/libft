@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array.c                                            :+:      :+:    :+:   */
+/*   d_array.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 18:24:43 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/25 01:25:22 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/03 19:55:36 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*ft_get_elem(t_array *array, size_t index)
 * Return an array of size array->lengh contening pointers of f results
 * [void *p1, void *p2, ...]
 */
-void	**map(t_array *array, void *(*f)(void *, int index))
+void	**ft_map(t_array *array, void *(*f)(void *, int index))
 {
 	void			**results;
 	size_t			i;
