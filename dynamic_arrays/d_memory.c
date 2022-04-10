@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:44:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/04/03 19:51:29 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:56:48 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,23 @@ bool	ft_push(t_array *array, void *content)
 {
 	t_array_node	*node;
 
-	if (!array || (array->type == e_array_dic))
+	if (!array)
 		return (false);
 	node = (t_array_node *)ft_calloc(1, sizeof(t_array_node));
 	if (!node)
 		return (false);
 	node->content = content;
+	node->next = 0;
 	if (array->length == 0)
 	{
 		array->head = node;
 		array->bottom = node;
 	}
 	else
+	{
 		array->bottom->next = node;
+		array->bottom = node;
+	}
 	array->length++;
 	return (true);
 }
@@ -63,12 +67,13 @@ bool	ft_unshift(t_array *array, void *content)
 {
 	t_array_node *node;
 
-	if (!array || (array->type == e_array_dic))
+	if (!array)
 		return (false);
 	node = (t_array_node *)ft_calloc(1, sizeof(t_array_node));
 	if (!node)
 		return (false);
 	node->content = content;
+	node->next = 0;
 	if (array->length == 0)
 	{
 		array->head = node;
@@ -94,7 +99,7 @@ void	*ft_pop(t_array *array)
 
 	if (!array)
 		return (0);
-	if (!array->length)
+	if ((array->length == 0) || (array->bottom == 0))
 		return (0);
 	content = 0;
 	node = array->bottom;
@@ -107,7 +112,7 @@ void	*ft_pop(t_array *array)
 	else if (array->length > 1)
 	{
 		content = node->content;
-		array->bottom = ft_get_array_node(array, (array->length - 1));
+		array->bottom = ft_get_array_node(array, (array->length - 2));
 	}
 	array->length--;
 	free(node);

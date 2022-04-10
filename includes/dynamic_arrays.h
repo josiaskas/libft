@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:45:33 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/04/03 20:00:50 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/09 19:41:47 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_array_node	*ft_get_array_node(t_array *array, size_t i);
 void			*ft_get_elem(t_array *array, size_t index);
 t_dic_node		*ft_elem_dic(t_array *array, char *key);
 void			**ft_map(t_array *array, void *(*f)(void *, int index));
-void			**ft_map_d(t_array *array, void *(*f)(void *, char *, int i));
+void			**ft_map_d(t_array *array, void *(*f)(void *, char *, size_t i));
 bool			ft_for_each(t_array *array, void (*apply)(void *, int index));
 
 #endif

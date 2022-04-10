@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 18:24:43 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/04/03 19:55:36 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/06 21:29:56 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_array_node	*ft_get_array_node(t_array *array, size_t i)
 	t_array_node	*node;
 
 	j = 0;
-	node = array->head;
 	if (array == 0)
 		return (0);
 	if (i >= array->length)
 		return (0);
-	while (i != j)
+	node = array->head;
+	while ((j < i) && (node != 0))
 	{
 		node = node->next;
 		j++;
@@ -61,8 +61,8 @@ void	**ft_map(t_array *array, void *(*f)(void *, int index))
 	i = 0;
 	if (!array)
 		return (0);
-	if (!array->length)
-		return(0);
+	if (array->length == 0)
+		return (0);
 	node = array->head;
 	results = ft_calloc(array->length, sizeof(void *));
 	if (!results)
@@ -88,14 +88,46 @@ bool	ft_for_each(t_array *array, void (*apply)(void *, int index))
 	i = 0;
 	if (!array)
 		return (0);
-	if (!array->length)
+	if (array->length == 0)
 		return (0);
 	node = array->head;
-	while (i < array->length)
+	while (i < array->length && (node != 0))
 	{
 		apply(node->content, i);
 		node = node->next;
 		i++;
 	}
 	return (true);
+}
+
+void	*ft_del_elem(t_array *array, size_t i)
+{
+	t_array_node	*node;
+	t_array_node	*nxt_node;
+	void			*content;
+
+	if (array == 0)
+		return (0);
+	if (i >= array->length)
+		return (0);
+	content = 0;
+	if ((array->length == 1) || (i == (array->length - 1)))
+		content = ft_pop(array);
+	else if (i == 0)
+	{
+		node = array->head;
+		nxt_node = node->next;
+		array->head = nxt_node;
+		free(node);
+	}
+	else if (i >= 1)
+	{
+		node = ft_get_array_node(array, i - 1);
+		nxt_node = ft_get_array_node(array, i);
+		content = nxt_node->content;
+		node->next = nxt_node->next;
+		free(nxt_node);
+		array->length--;
+	}
+	return (content);
 }
