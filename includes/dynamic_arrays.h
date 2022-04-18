@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:45:33 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/25 01:25:51 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:57:07 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ typedef struct	s_dic_node
 
 t_array			*ft_new_array();
 t_array			*ft_new_dic();
-bool			push(t_array *array, void *content);
-bool			push_to_dic(t_array *array, char *key, void *content);
+bool			ft_push(t_array *array, void *content);
+bool			ft_push_to_dic(t_array *array, char *key, void *content);
 bool			ft_unshift(t_array *array, void *content);
-void			*pop(t_array *array);
+void			*ft_pop(t_array *array);
 void			ft_free_array(t_array *array);
 void			ft_free_dic(t_array *array);
 t_array_node	*ft_get_array_node(t_array *array, size_t i);
 void			*ft_get_elem(t_array *array, size_t index);
 t_dic_node		*ft_elem_dic(t_array *array, char *key);
-void			**map(t_array *array, void *(*f)(void *, int index));
-void			**map_dic(t_array *array, void *(*f)(void *, char *, int i));
+void			**ft_map(t_array *array, void *(*f)(void *, int index));
+void			**ft_map_d(t_array *array, void *(*f)(void *, char *, int i));
 bool			ft_for_each(t_array *array, void (*apply)(void *, int index));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:44:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/25 00:12:49 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:00:24 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_array	*ft_new_array()
  * Push element to the end of Array works on non dic
  * Return (bool) true if space was found and content added
  */
-bool	push(t_array *array, void *content)
+bool	ft_push(t_array *array, void *content)
 {
 	t_array_node	*node;
 
@@ -87,7 +87,7 @@ bool	ft_unshift(t_array *array, void *content)
 * Pop the last element in the array
 * Return (void *) of the content
 */
-void	*pop(t_array *array)
+void	*ft_pop(t_array *array)
 {
 	t_array_node	*node;
 	void			*content;
@@ -125,7 +125,7 @@ void	ft_free_array(t_array *array)
 		return;
 	while (array->length)
 	{
-		content = pop(array);
+		content = ft_pop(array);
 		free(content);
 	}
 	free(array);
