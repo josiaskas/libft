@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 12:52:41 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/25 01:38:56 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:10:15 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 	t_stack_node	*bottom;
 }	t_stack;
 
-t_stack			*create_stack(void);
+t_stack 		*create_stack(void);
 // push value on the stack return true when pushed (false)
 bool			push_s(t_stack *stack, void *content);
 // return the pointer to value inside or 0
@@ -40,7 +40,7 @@ void			*pop_s(t_stack *stack);
 void			*peak(t_stack *stack);
 // return an Array of results of callback function without changing the stack
 int				*map_stack_i(t_stack *stack, int (*apply)(void *, int index));
-	// apply function on every element f(*content, index)
+// apply function on every element f(*content, index)
 bool			for_each_s(t_stack *stack, void (*apply)(void *, int i));
 // (greedy) get the next ellement according to current value in t_stack
 t_stack_node	*get_next(t_stack *stack);

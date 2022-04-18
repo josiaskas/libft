@@ -6,7 +6,7 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 14:35:03 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/03/24 18:13:02 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:10:26 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	reverse_rotate(t_stack *stack)
 	return (true);
 }
 
-int	*map_stack_i(t_stack *stack, int (*apply)(void *, int index))
+int		*map_stack_i(t_stack *stack, int (*apply)(void *, int index))
 {
 	int				*results;
 	t_stack_node	*node;

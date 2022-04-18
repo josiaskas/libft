@@ -6,12 +6,11 @@
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 23:59:17 by jkasongo          #+#    #+#             */
-/*   Updated: 2022/04/18 17:58:53 by jkasongo         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:09:51 by jkasongo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/dynamic_arrays.h"
-
 /*
  * Create a dynamic dictionary
  * Return (void *) of the content
@@ -37,22 +36,24 @@ t_array	*ft_new_dic()
 t_dic_node	*ft_elem_dic(t_array *array, char *key)
 {
 	size_t		i;
-	t_dic_node	*node_key;
+	t_dic_node	*dic_entry;
 	size_t		len;
 	char		*key_i;
 
 	i = 0;
+	if (!array)
+		return (0);
 	if (array->type != e_array_dic)
 		return (0);
 	len = ft_strlen(key);
 	while ((i < array->length) && (len > 0))
 	{
-		node_key = (t_dic_node *)ft_get_elem(array, i);
-		if (node_key == 0)
-			break;
-		key_i = node_key->key;
+		dic_entry = (t_dic_node *)ft_get_elem(array, i);
+		if (dic_entry == 0)
+			break ;
+		key_i = dic_entry->key;
 		if ((ft_strncmp(key_i, key, len) == 0) && (len == ft_strlen(key_i)))
-			return (node_key);
+			return (dic_entry);
 		i++;
 	}
 	return (0);
@@ -67,33 +68,25 @@ t_dic_node	*ft_elem_dic(t_array *array, char *key)
  */
 bool	ft_push_to_dic(t_array *array, char *key, void *content)
 {
-	t_dic_node		*node_key;
-	t_array_node	*node_array;
+	t_dic_node		*dic_entry;
 
-	if (!array || (array->type != e_array_dic))
+	if (!array)
+		return (false);
+	if (array->type != e_array_dic)
 		return (false);
 	if (ft_elem_dic(array, key) != 0)
 		return(false);
-	node_key = (t_dic_node *)ft_calloc(1, sizeof(t_dic_node));
-	node_array = (t_array_node *)ft_calloc(1, sizeof(t_array_node));
-	if (!node_array || !node_key)
+	dic_entry = (t_dic_node *)ft_calloc(1, sizeof(t_dic_node));
+	if (!dic_entry)
 		return (false);
-	node_key->content = content;
-	node_key->key = key;
-	node_array->content = node_key;
-	if (array->length == 0)
-	{
-		array->head = node_array;
-		array->bottom = node_array;
-	}
-	else
-		array->bottom->next = node_array;
-	array->length++;
+	dic_entry->content = content;
+	dic_entry->key = key;
+	ft_push(array, dic_entry);
 	return (true);
 }
 
 /*
- * Free Dictionary and content inside
+ * Free Dictionary key and content inside are free
  */
 void	ft_free_dic(t_array *array)
 {
@@ -107,6 +100,7 @@ void	ft_free_dic(t_array *array)
 		node = (t_dic_node *)ft_pop(array);
 		content = node->content;
 		free(content);
+		free(node->key);
 		free(node);
 	}
 	free(array);
@@ -119,7 +113,7 @@ void	ft_free_dic(t_array *array)
  * Return an array of size array->lengh contening pointers of f results
  * [void *p1, void *p2, ...]
  */
-void	**ft_map_d(t_array *array, void *(*f)(void *c, char *key, int i))
+void	**ft_map_d(t_array *array, void *(*f)(void *c, char *key, size_t i))
 {
 	void			**results;
 	size_t			i;
@@ -135,7 +129,7 @@ void	**ft_map_d(t_array *array, void *(*f)(void *c, char *key, int i))
 	results = ft_calloc(array->length, sizeof(void *));
 	if (!results)
 		return (0);
-	while (i < array->length)
+	while ((i < array->length) && (node != 0))
 	{
 		node_key = node->content;
 		results[i] = f(node_key->content, node_key->key, i);

@@ -6,7 +6,7 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2022/03/25 02:01:56 by jkasongo         ###   ########.fr        #
+#    Updated: 2022/04/18 18:09:06 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS_PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF))
 
 #dynamic
 DYNAMIC_DIR = dynamic_arrays/
-DYNAMIC = memory.c array.c dictionary.c
+DYNAMIC = d_memory.c d_array.c dictionary.c
 SRCS_DYNAMIC = $(addprefix $(DYNAMIC_DIR), $(DYNAMIC))
 
 #stack
@@ -66,19 +66,21 @@ SRCS_GNL = $(addprefix $(GNL_DIR), $(GNL))
 
 #objects
 OBJS = $(SRCS:%.c=%.o)
-OBJS_PRINTF = $(SRCS_PRINTF:%.c=%.o)
-OBJS_DYNAMIC = $(SRCS_DYNAMIC:%.c=%.o)
-OBJS_STACK = $(SRCS_STACK:%.c=%.o)
-OBJS_ARRAY = $(SRCS_ARRAY:%.c=%.o)
-OBJS_GNL = $(SRCS_GNL:%.c=%.o)
+OBJS_PRINTF = $(PRINTF:%.c=%.o)
+OBJS_DYNAMIC = $(DYNAMIC:%.c=%.o)
+OBJS_STACK = $(STACK:%.c=%.o)
+OBJS_ARRAY = $(ARRAY:%.c=%.o)
+OBJS_GNL = $(GNL:%.c=%.o)
 
 all: $(NAME)
 
 $(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL) $(OBJS_DYNAMIC)
-	@$(CC) $(CFLAGS) -c $(SRCS)
+	@$(CC) $(CFLAGS) $(SRCS)
 	@ar rc $(NAME) $(OBJS)
 	@ar rc $(NAME) $(OBJS_PRINTF)
 	@echo "ft_printf added to libft"
+	@ar rc $(NAME) $(OBJS_DYNAMIC)
+	@echo "dynamic asrrays added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
 	@echo "dynamic arrays added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
@@ -94,8 +96,11 @@ $(PRINTF_DIR)%.o : $(SRCS_PRINTF)
 $(DYNAMIC_DIR)%.o : $(SRCS_DYNAMIC)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(STACK_DIR)%.o : $(SRCS_STACK)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DYNAMIC) : $(SRCS_DYNAMIC)
+	@$(CC) $(CFLAGS) $(SRCS_DYNAMIC)
+
+$(OBJS_STACK) : $(SRCS_STACK)
+	@$(CC) $(CFLAGS) $(SRCS_STACK)
 
 $(ARRAY_DIR)%.o : $(SRCS_ARRAY)
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -106,6 +111,7 @@ $(GNL_DIR)%.o : $(SRCS_GNL)
 clean:
 	@rm -f $(OBJS)
 	@rm -f $(OBJS_PRINTF)
+	@rm -f $(OBJS_DYNAMIC)
 	@rm -f $(OBJS_STACK)
 	@rm -f $(OBJS_ARRAY)
 	@rm -f $(OBJS_DYNAMIC)
