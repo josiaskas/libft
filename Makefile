@@ -6,14 +6,14 @@
 #    By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 02:21:09 by jkasongo          #+#    #+#              #
-#    Updated: 2022/04/18 18:09:06 by jkasongo         ###   ########.fr        #
+#    Updated: 2022/04/18 18:16:24 by jkasongo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Librairie personnel pour les projets en C
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -c -g
 
 #source
 SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
@@ -82,19 +82,14 @@ $(NAME):$(OBJS_PRINTF) $(OBJS_STACK) $(OBJS_ARRAY) $(OBJS_GNL) $(OBJS_DYNAMIC)
 	@ar rc $(NAME) $(OBJS_DYNAMIC)
 	@echo "dynamic asrrays added to libft"
 	@ar rc $(NAME) $(OBJS_STACK)
-	@echo "dynamic arrays added to libft"
-	@ar rc $(NAME) $(OBJS_STACK)
 	@echo "stack added to libft"
 	@ar rc $(NAME) $(OBJS_ARRAY)
 	@echo "gnl added to libft"
 	@ar -rcs $(NAME) $(OBJS_GNL)
 	@echo "libft.a builded"
 
-$(PRINTF_DIR)%.o : $(SRCS_PRINTF)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-$(DYNAMIC_DIR)%.o : $(SRCS_DYNAMIC)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_PRINTF) : $(SRCS_PRINTF)
+	@$(CC) $(CFLAGS) $(SRCS_PRINTF)
 
 $(OBJS_DYNAMIC) : $(SRCS_DYNAMIC)
 	@$(CC) $(CFLAGS) $(SRCS_DYNAMIC)
@@ -102,11 +97,11 @@ $(OBJS_DYNAMIC) : $(SRCS_DYNAMIC)
 $(OBJS_STACK) : $(SRCS_STACK)
 	@$(CC) $(CFLAGS) $(SRCS_STACK)
 
-$(ARRAY_DIR)%.o : $(SRCS_ARRAY)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_ARRAY) : $(SRCS_ARRAY)
+	@$(CC) $(CFLAGS) $(SRCS_ARRAY)
 
-$(GNL_DIR)%.o : $(SRCS_GNL)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_GNL) : $(SRCS_GNL)
+	@$(CC) $(CFLAGS) $(SRCS_GNL)
 
 clean:
 	@rm -f $(OBJS)
@@ -114,7 +109,6 @@ clean:
 	@rm -f $(OBJS_DYNAMIC)
 	@rm -f $(OBJS_STACK)
 	@rm -f $(OBJS_ARRAY)
-	@rm -f $(OBJS_DYNAMIC)
 	@rm -f $(OBJS_GNL)
 
 fclean: clean
