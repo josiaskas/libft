@@ -54,6 +54,7 @@ void			ft_free_d_array(t_array *array);
 void			ft_free_dic(t_array *array);
 t_array_node	*ft_get_array_node(t_array *array, size_t i);
 void			*ft_get_elem(t_array *array, size_t index);
+void			*ft_del_elem(t_array *array, size_t i);
 t_dic_node		*ft_elem_dic(t_array *array, char *key);
 void			**ft_map(t_array *array, void *(*f)(void *, int index));
 void			**ft_map_d(t_array *array, void *(*f)(void *, char *, size_t i));
