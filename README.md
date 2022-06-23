@@ -1,4 +1,4 @@
-# LIBFT | WITH PRINTF AND STACK | can you use Haki?
+# LIBFT | WITH PRINTF ARRAYS AND STACK | can you use Haki?
 
 Implementation of some of the Standard C Library functions including some additional ones.
 
