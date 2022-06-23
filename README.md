@@ -41,7 +41,7 @@ typedef struct	s_dic_node
 
 ### Array
 ```c
-t_array			*ft_new_array();
+t_array			*ft_new_array(void);
 bool			ft_push(t_array *array, void *content);
 void			*ft_pop(t_array *array);
 bool			ft_unshift(t_array *array, void *content);
@@ -54,7 +54,7 @@ void			ft_free_d_array(t_array *array);
 
 ### Dictionary
 ```c
-t_array			*ft_new_dic();
+t_array			*ft_new_dic(void);
 bool			ft_push_to_dic(t_array *array, char *key, void *content);
 t_dic_node		*ft_elem_dic(t_array *array, char *key);
 void			**ft_map_d(t_array *array, void *(*f)(void *, char *, size_t i));

@@ -68,7 +68,7 @@ bool	reverse_rotate(t_stack *stack)
 	return (true);
 }
 
-int		*map_stack_i(t_stack *stack, int (*apply)(void *, int index))
+int	*map_stack_i(t_stack *stack, int (*apply)(void *, int index))
 {
 	int				*results;
 	t_stack_node	*node;

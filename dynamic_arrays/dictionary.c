@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "../includes/dynamic_arrays.h"
+
 /*
  * Create a dynamic dictionary
  * Return (void *) of the content
  */
-t_array	*ft_new_dic()
+t_array	*ft_new_dic(void)
 {
 	t_array	*array;
 
@@ -59,7 +60,6 @@ t_dic_node	*ft_elem_dic(t_array *array, char *key)
 	return (0);
 }
 
-
 /*
  * Push element to the end of Array works on non dic
  * Return (bool) true if space was found and content added
@@ -75,7 +75,7 @@ bool	ft_push_to_dic(t_array *array, char *key, void *content)
 	if (array->type != e_array_dic)
 		return (false);
 	if (ft_elem_dic(array, key) != 0)
-		return(false);
+		return (false);
 	dic_entry = (t_dic_node *)ft_calloc(1, sizeof(t_dic_node));
 	if (!dic_entry)
 		return (false);
@@ -94,7 +94,7 @@ void	ft_free_dic(t_array *array)
 	t_dic_node	*node;
 
 	if (!array)
-		return;
+		return ;
 	while (array->length)
 	{
 		node = (t_dic_node *)ft_pop(array);
@@ -104,16 +104,16 @@ void	ft_free_dic(t_array *array)
 		free(node);
 	}
 	free(array);
-	array = 0;
-	return;
+	array = NULL;
+	return ;
 }
 
 /*
- * Take a dictionary and apply the f function, wich return pointers to result
- * Return an array of size array->lengh contening pointers of f results
- * [void *p1, void *p2, ...]
+ * Take a dictionary and apply the f function, witch return pointers to result
+ * Return an array of size array->length containing pointers of f results
+ * [void *p1, void *p2, ...] that need to be free after usage
  */
-void	**ft_map_d(t_array *array, void *(*f)(void *c, char *key, size_t i))
+void	**ft_map_d(t_array *arr, void *(*f)(void *c, char *key, size_t i))
 {
 	void			**results;
 	size_t			i;
@@ -121,15 +121,15 @@ void	**ft_map_d(t_array *array, void *(*f)(void *c, char *key, size_t i))
 	t_dic_node		*node_key;
 
 	i = 0;
-	if (!array)
+	if (!arr)
 		return (0);
-	if (!array->length)
+	if (!arr->length)
 		return (0);
-	node = array->head;
-	results = ft_calloc(array->length, sizeof(void *));
+	node = arr->head;
+	results = ft_calloc(arr->length, sizeof(void *));
 	if (!results)
 		return (0);
-	while ((i < array->length) && (node != 0))
+	while ((i < arr->length) && (node != 0))
 	{
 		node_key = node->content;
 		results[i] = f(node_key->content, node_key->key, i);

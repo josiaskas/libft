@@ -16,7 +16,7 @@
  * Create a dynamic array (link list)
  * Return (void *) of the content
  */
-t_array	*ft_new_array()
+t_array	*ft_new_array(void)
 {
 	t_array	*array;
 
@@ -60,12 +60,12 @@ bool	ft_push(t_array *array, void *content)
 }
 
 /*
- * Push element to the beggin of Array works on non dic
+ * Push element to the top of Array works on non dic
  * Return (bool) true if space was found and content added
  */
 bool	ft_unshift(t_array *array, void *content)
 {
-	t_array_node *node;
+	t_array_node	*node;
 
 	if (!array)
 		return (false);
@@ -127,7 +127,7 @@ void	ft_free_d_array(t_array *array)
 	void	*content;
 
 	if (!array)
-		return;
+		return ;
 	while (array->length)
 	{
 		content = ft_pop(array);
@@ -135,5 +135,5 @@ void	ft_free_d_array(t_array *array)
 	}
 	free(array);
 	array = NULL;
-	return;
+	return ;
 }

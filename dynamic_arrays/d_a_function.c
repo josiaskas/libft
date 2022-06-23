@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   d_function.c                                       :+:      :+:    :+:   */
+/*   d_a_function.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkasongo <jkasongo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,21 +12,15 @@
 
 #include "../includes/dynamic_arrays.h"
 
-void *ft_del_elem(t_array *array, size_t i)
+static void	*ft_del_elem_suite(t_array *array, size_t i)
 {
 	t_array_node	*before_node;
 	t_array_node	*node;
 	t_array_node	*next_node;
 	void			*content;
 
-	if (array == 0)
-		return (0);
-	if (i >= array->length)
-		return (0);
-	content = 0;
-	if ((array->length == 1) || (i == 0) || (i == (array->length - 1)))
-		content = ft_pop(array);
-	else if (i >= 1)
+	content = NULL;
+	if (i >= 1)
 	{
 		node = ft_get_array_node(array, i);
 		next_node = ft_get_array_node(array, i + 1);
@@ -41,5 +35,25 @@ void *ft_del_elem(t_array *array, size_t i)
 		free(node);
 		array->length--;
 	}
+	return (content);
+}
+
+/*
+ * Pop element from the array and return the pointer of the content
+ * can be a t_dic_node in case of dictionary
+ */
+void	*ft_del_elem(t_array *array, size_t i)
+{
+	void			*content;
+
+	if (array == 0)
+		return (0);
+	if (i >= array->length)
+		return (0);
+	content = 0;
+	if ((array->length == 1) || (i == 0) || (i == (array->length - 1)))
+		content = ft_pop(array);
+	else if (i >= 1)
+		content = ft_del_elem_suite(array, i);
 	return (content);
 }

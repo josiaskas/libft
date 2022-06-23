@@ -46,7 +46,7 @@ SRCS_PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF))
 
 #dynamic
 DYNAMIC_DIR = dynamic_arrays/
-DYNAMIC = d_memory.c d_array.c dictionary.c
+DYNAMIC = d_memory.c d_array.c dictionary.c d_a_function.c
 SRCS_DYNAMIC = $(addprefix $(DYNAMIC_DIR), $(DYNAMIC))
 
 #stack

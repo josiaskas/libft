@@ -31,7 +31,7 @@ typedef struct s_stack
 	t_stack_node	*bottom;
 }	t_stack;
 
-t_stack 		*create_stack(void);
+t_stack			*create_stack(void);
 // push value on the stack return true when pushed (false)
 bool			push_s(t_stack *stack, void *content);
 // return the pointer to value inside or 0
