@@ -2,7 +2,10 @@
 
 Implementation of some of the Standard C Library functions including some additional ones.
 
-_If you need the 42 project without any upgrade switch on master branch_
+ - _If you need the 42 project without any upgrade switch on ***master branch***_
+  ```shell
+    git checkout master
+  ```
 
 **Makefile : CFLAGS = -Wall -Wextra -Werror -c -g** _(you can change -g)_
 
