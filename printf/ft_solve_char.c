@@ -94,11 +94,9 @@ static void	print_special(char *flag, int width, t_arg *arg)
 void	ft_printf_char(t_arg *arg)
 {
 	int		width;
-	char	*flag;
 	char	c;
 
 	width = 1;
-	flag = arg->flag;
 	if (arg->part[1])
 		width = arg->min_width;
 	if ((arg->part[0]) || (width > 1) || (width < -1))
