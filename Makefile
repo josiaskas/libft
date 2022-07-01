@@ -13,7 +13,7 @@
 #Librairie personnel pour les projets en C
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c -g
+CFLAGS = -Wall -Wextra -Werror -c
 
 #source
 SRCS =	ft_memset.c ft_bzero.c ft_memcpy.c\
