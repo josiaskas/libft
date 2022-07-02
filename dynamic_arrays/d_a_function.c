@@ -20,11 +20,14 @@ static void	*ft_del_elem_suite(t_array *array, size_t i)
 	void			*content;
 
 	content = NULL;
-	if (i >= 1)
-	{
-		node = ft_get_array_node(array, i);
-		next_node = ft_get_array_node(array, i + 1);
+	node = ft_get_array_node(array, i);
+	next_node = ft_get_array_node(array, i + 1);
+	if (node)
 		content = node->content;
+	if (i == 0)
+		array->head = next_node;
+	else if (i >= 1)
+	{
 		if (node == array->head)
 			array->head = next_node;
 		else
@@ -32,9 +35,9 @@ static void	*ft_del_elem_suite(t_array *array, size_t i)
 			before_node = ft_get_array_node(array, i - 1);
 			before_node->next = next_node;
 		}
-		free(node);
-		array->length--;
 	}
+	free(node);
+	array->length--;
 	return (content);
 }
 
@@ -50,10 +53,9 @@ void	*ft_del_elem(t_array *array, size_t i)
 		return (0);
 	if (i >= array->length)
 		return (0);
-	content = 0;
-	if ((array->length == 1) || (i == 0) || (i == (array->length - 1)))
+	if ((array->length == 1) || (i == (array->length - 1)))
 		content = ft_pop(array);
-	else if (i >= 1)
+	else
 		content = ft_del_elem_suite(array, i);
 	return (content);
 }
