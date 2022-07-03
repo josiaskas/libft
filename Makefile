@@ -12,7 +12,7 @@
 
 #Librairie personnel pour les projets en C
 NAME = libft.a
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror -c -g
 
 #source
