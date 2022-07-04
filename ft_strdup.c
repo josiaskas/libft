@@ -19,6 +19,8 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = 0;
+	if (!s1)
+		return (ft_strdup(""));
 	while (s1[len])
 		len++;
 	heap_p = malloc(len + 1);
