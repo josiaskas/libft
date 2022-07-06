@@ -50,6 +50,8 @@ void	ft_free_splitted(char **arr)
 	size_t	i;
 
 	i = 0;
+	if (!arr)
+		return ;
 	while (arr[i])
 	{
 		free(arr[i]);
