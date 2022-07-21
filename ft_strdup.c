@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	len = 0;
 	if (!s1)
-		return (ft_strdup(""));
+		return (NULL);
 	while (s1[len])
 		len++;
 	heap_p = malloc(len + 1);
